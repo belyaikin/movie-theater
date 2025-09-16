@@ -1,4 +1,4 @@
-
+/* Авторизация*/
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #121212; /* Темный фон */
+    color: #f4f4f4; /* Светлый текст для контраста */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Контейнер для формы авторизации */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -21,21 +23,23 @@ body {
     height: 100%;
 }
 
+/* Блок формы авторизации */
 .auth-box {
-    background-color: #fff;
+    background-color: #1e1e1e; /* Темный фон для блока */
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    width: 320px;
     text-align: center;
 }
 
 .auth-box h2 {
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 26px;
+    color: #e74c3c; /* Бордовый цвет для заголовка */
 }
 
+/* Группа инпутов */
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -43,31 +47,30 @@ body {
 
 .input-group label {
     font-size: 14px;
-    color: #333;
+    color: #e74c3c; /* Бордовый цвет для метки */
 }
 
 .input-group input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #444; /* Темная граница */
     border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #e74c3c; /* Бордовая граница при фокусе */
 }
 
-.form-footer {
-    margin-top: 20px;
-}
-
+/* Кнопка */
 .form-footer .btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #e74c3c; /* Бордовая кнопка */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -75,14 +78,15 @@ body {
 }
 
 .form-footer .btn:hover {
-    background-color: #0056b3;
+    background-color: #c0392b; /* Темный бордовый цвет при наведении */
 }
 
+/* Ссылки в футере */
 .form-footer a {
-    color: #007bff;
+    color: #e74c3c;
     text-decoration: none;
 }
 
 .form-footer a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Подчеркивание при наведении */
 }
