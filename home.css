@@ -2,9 +2,7 @@
     position: relative;
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 40px;
-
-    border: solid;
+    margin-bottom: 40px;    
 }
 
 .big-cool-text img {
@@ -24,16 +22,20 @@
 }
 
 .fact {
-    border: solid;
+    background-color: #1a1a1a;
 
     width: 1000px;
     height: 250px;
 
-    position:fixed;sadsadasdasd
+    margin-bottom: 50px;
+
+    position: relative;
+    border: 1px solid #444;
+    border-radius: 50px;
 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 }
 
 .fact p {
@@ -46,5 +48,25 @@
 
 .fact img {
     float: right;
+    border-radius: 50px;
+
+    position: relative;
+    top: 10px;
+    right: 10px;
+
     width: 30%;
+}
+
+.viewers {
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px; 
+}
+
+.viewers p {
+    color: #ff4935;
+    font-size:x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
 }
