@@ -1,51 +1,3 @@
-/* css для About.html */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-}
-
-
-.header-section {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.header-section h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.nav-bar {
-    margin-top: 10px;
-}
-
-.nav-bar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-}
-
-.nav-bar a:hover {
-    text-decoration: underline;
-}
-
-
-.main-content {
-    padding: 40px 20px;
-    text-align: center;
-}
-
 .about-intro {
     margin-bottom: 40px;
 }
@@ -53,7 +5,7 @@ body {
 .about-intro h2 {
     font-size: 28px;
     margin-bottom: 15px;
-    color: #333;
+    color: #e74c3c;
 }
 
 .about-intro p {
@@ -61,7 +13,6 @@ body {
     color: #555;
     line-height: 1.6;
 }
-
 
 .team-section {
     margin-top: 40px;
@@ -100,7 +51,6 @@ body {
     color: #333;
 }
 
-
 .footer-section {
     background-color: #007bff;
     color: #fff;
@@ -113,134 +63,6 @@ body {
 
 .footer-section p {
     font-size: 14px;
-}
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark Background */
-    color: #f4f4f4; /* Light text for contrast */
-    line-height: 1.6;
-}
-
-/* Auth Page Styles */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.auth-box {
-    background-color: #1e1e1e; /* Dark box background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    width: 320px;
-    text-align: center;
-}
-
-.auth-box h2 {
-    margin-bottom: 20px;
-    font-size: 26px;
-    color: #e74c3c; /* Burgundy red for text */
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.input-group label {
-    font-size: 14px;
-    color: #e74c3c;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: #e74c3c; /* Burgundy focus border */
-}
-
-.form-footer .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background-color: #e74c3c; /* Burgundy button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.form-footer .btn:hover {
-    background-color: #c0392b; /* Darker shade of burgundy */
-}
-
-.form-footer a {
-    color: #e74c3c;
-    text-decoration: none;
-}
-
-.form-footer a:hover {
-    text-decoration: underline;
-}
-
-/* About Page Styles */
-.header-section {
-    background-color: #1e1e1e;
-    color: #e74c3c;
-    padding: 20px;
-    text-align: center;
-}
-
-.header-section h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.nav-bar {
-    margin-top: 10px;
-}
-
-.nav-bar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-}
-
-.nav-bar a:hover {
-    text-decoration: underline;
-}
-
-.main-content {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.about-intro {
-    margin-bottom: 40px;
-}
-
-.about-intro h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: #e74c3c;
 }
 
 .about-intro p {
@@ -291,7 +113,7 @@ body {
     color: #e74c3c;
     text-align: center;
     padding: 15px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
