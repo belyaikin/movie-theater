@@ -1,3 +1,37 @@
+.header-section {
+    width: 100%;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center; 
+    min-width: 100%;
+}
+
+.nav-bar .login-btn {
+    position: absolute; 
+    right: 20px;
+    top: 6%;
+    
+}
+
+.login-btn button {
+   
+    margin-left: auto; 
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+.login-btn button:hover {
+    background-color: hsl(0, 79%, 40%);
+}
+
+
+
 .about-intro {
     margin-bottom: 40px;
 }
