@@ -155,3 +155,35 @@
 .footer-section p {
     font-size: 14px;
 }
+
+.about-intro h2::before {
+    content: "★";
+    font-size: 36px;
+    color: #e74c3c;
+    margin-right: 10px;
+}
+.team-section h2::after {
+    content: "★";
+    font-size: 36px;
+    color: #e74c3c;
+    margin-left: 10px;
+}
+
+
+.login-btn button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn button:hover {
+    background-color: hsl(0, 79%, 40%);
+    transform: scale(1.05); 
+}
+
+.team-photo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+}

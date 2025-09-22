@@ -85,3 +85,13 @@ body {
     text-decoration: underline;
 }
 
+
+
+.form-footer .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-footer .btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05); 
+}
