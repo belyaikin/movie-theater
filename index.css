@@ -77,3 +77,16 @@ body {
     margin-bottom: 40px;
 }
 
+.footer-section {
+    background-color: #1e1e1e;
+    color: #e74c3c;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-section p {
+    font-size: 14px;
+}
