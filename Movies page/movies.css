@@ -13,7 +13,7 @@
 }
 
 .movies-section {
-    margin: 15px;
+    margin: 15px;   
 }
 
 .movies-section ul {
@@ -21,6 +21,8 @@
     padding: 0;
     margin: 50px;
     overflow: hidden;
+    display: flex;
+    justify-content:space-between;
 }
 
 .movies-section li {
