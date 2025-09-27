@@ -28,7 +28,8 @@ body {
 }
 
 .login-btn button {
-   
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
     margin-left: auto; 
     padding: 8px 16px;
     border: none;
@@ -39,8 +40,12 @@ body {
 }
 
 .login-btn button:hover {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
     background-color: hsl(0, 79%, 40%);
+    transform: scale(1.05); 
 }
+
 .header-section {
     background-color: #1e1e1e;
     color: #e74c3c;
