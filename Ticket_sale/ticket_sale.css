@@ -4,7 +4,21 @@ body {
 }
 
 .card button{
-    border-radius: 20px;
+    background: linear-gradient(90deg, #ff4500, #ff8c00);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+}
+.card button::before {
+    content: "✦";
+    margin-right: 5px;
+    font-size: 20px;
 }
 .header {
     display: flex;
