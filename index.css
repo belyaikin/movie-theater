@@ -10,24 +10,66 @@ body {
     color: #f4f4f4;
     line-height: 1.6;
 }
-.header-section {
-    width: 100%;
+
+li, a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 
-.nav-bar {
+header {
+    transition: background-color .5s ease;
+    transition: border-color .5s ease;
+
+    max-width: 99%;
+    margin: 0 auto;
+    margin-top: 10px;
+
     display: flex;
-    justify-content: center; 
-    min-width: 100%;
-}
+    justify-content: space-between;
+    align-items: center;
 
-.nav-bar .login-btn {
-    position: absolute; 
-    right: 20px;
-    top: 6%;
+    padding: 20px 2%;
     
+    background-color: #1e1e1e;
+    overflow: hidden;
+
+    border-style: solid;
+    border-color: #1e1e1e;
+    border-radius: 20px;
 }
 
-.login-btn button {
+header:hover {
+    transition: border-color .5s ease;
+
+    border-color: #252525;
+}
+
+.logo {
+    transform: scale(110%);
+    margin-right: 20px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav-links li a {
+    transition: color .5s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-links li a:hover {
+    transition: color .5s ease;
+    color: #e74c3c;
+}
+
+button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     margin-left: auto; 
@@ -39,38 +81,11 @@ body {
     cursor: pointer;
 }
 
-.login-btn button:hover {
+button:hover {
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     background-color: hsl(0, 79%, 40%);
     transform: scale(1.05); 
-}
-
-.header-section {
-    background-color: #1e1e1e;
-    color: #e74c3c;
-    padding: 20px;
-    text-align: center;
-}
-
-.header-section h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.nav-bar {
-    margin-top: 10px;
-}
-
-.nav-bar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-}
-
-.nav-bar a:hover {
-    text-decoration: underline;
 }
 
 .main-content {
