@@ -10,22 +10,7 @@ body {
     color: #f4f4f4;
     line-height: 1.6;
 }
-.header-section {
-    width: 100%;
-}
 
-.nav-bar {
-    display: flex;
-    justify-content: center; 
-    min-width: 100%;
-}
-
-.nav-bar .login-btn {
-    position: absolute; 
-    right: 20px;
-    top: 6%;
-    
-}
 
 .login-btn button {
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -56,21 +41,6 @@ body {
 .header-section h1 {
     font-size: 36px;
     margin-bottom: 10px;
-}
-
-.nav-bar {
-    margin-top: 10px;
-}
-
-.nav-bar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-}
-
-.nav-bar a:hover {
-    text-decoration: underline;
 }
 
 .main-content {
