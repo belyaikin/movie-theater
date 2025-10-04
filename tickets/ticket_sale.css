@@ -3,7 +3,7 @@ body {
     background-color: #000000;
 }
 
-.card button{
+/* .card button{
     background: linear-gradient(90deg, #ff4500, #ff8c00);
     border: none;
     border-radius: 25px;
@@ -14,7 +14,7 @@ body {
     font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
-}
+} */
 .card button::before {
     content: "✦";
     margin-right: 5px;
