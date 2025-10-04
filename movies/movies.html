@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="movies.css">
     
     <title>CMTIA: Home</title>
 </head>
 <body>
-    <header>
-        <img class="logo" src="../images/logo.png">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><img src="../images/logo.png" alt="Logo"></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about/about.html">About Us</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="../tickets/ticket_sale.html">Tickets</a></li>
-                <li><a href="../top/top.html">Top Films</a></li>
-                <li><a href="../cafepage/cafe.html">Cafe</a></li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../top/top.html">Popular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about/about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-primary">Login</button>
+                </li>
             </ul>
-        </nav>
-
-        <button class="login-btn">Login</button>
-    </header>
+        </div>
+    </nav>
 
     <div class="da-big-text">
         <p>Here's our movies</p>

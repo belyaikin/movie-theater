@@ -4,53 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="home.css">
-    
+
     <title>CMTIA: Home</title>
 </head>
+
 <body>
-    <header>
-        <img class="logo" src="images/logo.png">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="about/about.html">About Us</a></li>
-                <li><a href="movies/movies.html">Movies</a></li>
-                <li><a href="tickets/ticket_sale.html">Tickets</a></li>
-                <li><a href="top/top.html">Top Films</a></li>
-                <li><a href="cafepage/cafe.html">Cafe</a></li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="movies/movies.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tickets/ticket_sale.html">Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="top/top.html">Popular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cafepage/cafe.html">Cafe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about/about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-primary">Login</button>
+                </li>
             </ul>
-        </nav>
+        </div>
+    </nav>
 
-        <button class="login-btn">Login</button>
-    </header>
-
-    <main class="main-content">
-        <div class="big-cool-text">
-            <img src="images/theater.jpg">
-            <p>We're the coolest movie theater in Astana.</p>
+    <div class="big-cool-text">
+        <div id="theaterCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="images/theater.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/theater-1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
+                </div>
+            </div>
         </div>
 
-        <div class="fact">
-            <img src="images/watching.jpg" alt="A bunch of people watching a movie">
-            <p>Enjoy movies and shows anytime with our day and night programs.<br>Also, you can bring your friends and get a 30% discount!</p>
-        </div>
+        <p>We're the coolest movie theater in Astana.</p>
+    </div>
 
-        <div class="fact">
-            <img src="images/abandoned_theater.webp" alt="adsas">
-            <p>With our comfortable screen rooms you can fully immerse yourself<br>in wonders of cinematography.</p>
-        </div>
+    <div class="fact">
+        <img src="images/watching.jpg" alt="A bunch of people watching a movie">
+        <p>Enjoy movies and shows anytime with our day and night programs.<br>Also, you can bring your friends and get a 30% discount!</p>
+    </div>
 
-        <div class="viewers">
-            <p>Look at our happy viewers during the Minecraft movie!</p>
-            <iframe src="https://youtube.com/embed/-NUgnYNr8ww" width="280" height="500"></iframe>
-        </div>
+    <div class="fact">
+        <img src="images/abandoned_theater.webp" alt="adsas">
+        <p>With our comfortable screen rooms you can fully immerse yourself<br>in wonders of cinematography.</p>
+    </div>
 
-        <footer class="footer-section">
-            <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
-        </footer>
-    </main>
+    <div class="viewers">
+        <p>Look at our happy viewers during the Minecraft movie!</p>
+        <iframe src="https://youtube.com/embed/-NUgnYNr8ww" width="280" height="500"></iframe>
+    </div>
+
+    <footer class="footer-section">
+        <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
+    </footer>
 </body>
 </html>
