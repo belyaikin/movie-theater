@@ -9,24 +9,41 @@
     <link rel="stylesheet" href="cafe.css">
 </head>
 <body>
-    <header class="header-section">
-        <h1>Movie Theater Website</h1>
-        <nav class="nav-bar">
-            <a href="../index.html">Home</a>
-            <a href="../About%20page/about.html">About Us</a>
-            <a href="../Movies%20page/movies.html">Movies</a>
-            <a href="../Ticket_sale/ticket_sale.html">CinemaHub</a>
-            <a href="../Top_films/top.html">Top</a>
-            <div class="login-btn">
-                <a href="../Authorization%20page/auth.html">
-                    <button type="button">Login</button>
-                </a>
-                <a href="../Authorization%20page/auth.html">
-                    <button type="button">Sign in</button>
-                </a>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../movies/movies.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../top/top.html">Popular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../auth/auth.html">
+                    <button type="button" class="btn btn-danger">Login</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <main class="main-content cafe">
         <!-- Task 3: Bootstrap Container -->
