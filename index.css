@@ -37,6 +37,7 @@ body {
 .footer-section p {
     font-size: 14px;
 }
+
 .popup-overlay {
     display: none;
     position: fixed;
