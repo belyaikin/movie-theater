@@ -20,6 +20,10 @@ body {
     margin-bottom: 40px;
 }
 
+.time-text {
+    color: #e74c3c;
+}
+
 .footer-section {
     background-color: #1e1e1e;
     color: #e74c3c;
