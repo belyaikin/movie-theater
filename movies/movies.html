@@ -48,31 +48,58 @@
     </div>
 
     <div class="card-group">
-        <div class="card">
-            <img src="../images/breakingbad.webp" class="card-img-top" alt="...">
+        <div class="card mv-one">
+            <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
-            <h5 class="card-title">Breaking Bad</h5>
-            <p class="card-text">Cool movie insert description here asddasdsa</p>
-            <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
             </div>
         </div>
-        <div class="card">
-            <img src="../images/bettercallsaul.jpg" class="card-img-top" alt="...">
+    
+        <div class="card mv-two">
+            <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
-            <h5 class="card-title">Breaking Bad</h5>
-            <p class="card-text">Cool movie insert description here asddasdsa</p>
-            <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
             </div>
         </div>
-        <div class="card">
-            <img src="../images/elcamino.jpg" class="card-img-top" alt="...">
+
+        <div class="card mv-three">
+            <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
-            <h5 class="card-title">Breaking Bad</h5>
-            <p class="card-text">Cool movie insert description here asddasdsa</p>
-            <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
             </div>
         </div>
     </div>
+
+    <script>
+        class MovieCard {
+            constructor(image, title, description) {
+                this.image = image
+                this.title = title
+                this.description = description
+            }
+        }
+
+        const cards = ['mv-one', 'mv-two', 'mv-three']
+        const movies = [
+            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "Waltuh"),
+            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "Saul goodman"),
+            new MovieCard("../images/elcamino.jpg", "El Camino", "idk i havent watched it but people say its bad")
+        ]
+
+        for (let i = 0; i < cards.length; i++) {
+            let card = document.getElementsByClassName(cards[i])[0]
+
+            card.querySelector(".card-img-top").src = movies[i].image
+            card.querySelector(".card-title").textContent = movies[i].title
+            card.querySelector(".card-text").textContent = movies[i].description
+        }
+    </script>
 
     <div class="da-small-text">
         <p>Nothing more. Only Breaking Bad series. Who needs more?</p>
