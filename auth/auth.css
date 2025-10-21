@@ -94,3 +94,10 @@ body {
     background-color: #c0392b;
     transform: scale(1.05); 
 }
+
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
