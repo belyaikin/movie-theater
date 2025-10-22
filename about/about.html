@@ -3,137 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>CMTIA: About us</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../index.css">
+    <title>Coolest Theater - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="about.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-        
+        <div class="language-switcher">
+            <select id="languageSelect" class="lang-select">
+                <option value="ru">Русский</option>
+                <option value="kk">Қазақша</option>
+                <option value="en">English</option>
+            </select>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../movies/movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../top/top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="../movies/movies.html">Movies</a></li>
+                <li class="nav-item"><a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a></li>
+                <li class="nav-item"><a class="nav-link" href="../top/top.html">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="../cafepage/cafe.html">Cafe</a></li>
+                <li class="nav-item"><a class="nav-link" href="../about/about.html">About Us</a></li>
                 <li class="nav-item">
                     <a href="../auth/auth.html">
-                    <button type="button" class="btn btn-danger">Login</button>
+                        <button type="button" class="btn btn-danger">Login</button>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div id="popupForm" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest movie updates, special offers, and exclusive content!</p>
-            <form id="subscriptionForm">
-                <div class="form-group">
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <select id="preferences" name="preferences">
-                        <option value="">Select your movie preferences</option>
-                        <option value="action">Action</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="drama">Drama</option>
-                        <option value="horror">Horror</option>
-                        <option value="sci-fi">Sci-Fi</option>
-                        <option value="all">All Genres</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="newsletter" name="newsletter" checked>
-                        I want to receive weekly movie updates
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="offers" name="offers" checked>
-                        I want to receive special offers and discounts
-                    </label>
-                </div>
-                <button type="submit" class="btn-submit">Subscribe Now</button>
-            </form>
-        </div>
-    </div>
 
-    <main class="main-content">
-        <section class="about-intro">
-            <h2>Welcome to Duo.kz!</h2>
-            <p>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="star">★</span>
+                Welcome to Duo.kz!
+                <span class="star">★</span>
+            </h1>
+            <p class="hero-text">
                 We are a team of film enthusiasts creating a convenient website for film lovers.
-                <br>On our portal you can find information about new films, buy tickets
-                <br>and follow the ratings of your favorite films.
             </p>
-        </section>
+            <p class="hero-subtitle">
+                On our portal you can find information about new films, buy tickets 
+                and follow the ratings of your favorite films.
+            </p>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <section class="about-intro">
-                <h2>Welcome to Duo.kz!</h2>
-                <p>
-                    We are a team of film enthusiasts creating a convenient website for film lovers.
-                    <br>On our portal you can find information about new films, buy tickets
-                    <br>and follow the ratings of your favorite films.
-                </p>
-        </section>
 
-        <section class="team-section">
-            <h2>Our team</h2>
-            <div class="team-members">
-                <div class="member">
-                    <img src="../images/danial.jpg" alt="Member 1" class="team-photo">
-                    <p>Danial Myrzatayev — Frontend Developer</p>
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-line"></span>
+                Our Team
+                <span class="title-line"></span>
+            </h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="card-avatar">
+                        <img src="../images/dima.png" alt="Dmitriy Belyaikin" class="avatar-img">
+                    </div>
+                    <h3 class="card-name">Dmitriy Belyaikin</h3>
+                    <p class="card-role">UX/UI Designer</p>
+                    <div class="card-skills">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Design</span>
+                    </div>
                 </div>
-                <div class="member">
-                    <img src="../images/dima.png" alt="Member 2" class="team-photo">
-                    <p>Dmitriy Belyaikin — UX/UI designer and Frontend Developer</p>
+
+                <div class="team-card featured">
+                    <div class="card-avatar">
+                        <img src="../images/danial.jpg" alt="Danial Myrzatayev" class="avatar-img">
+                        
+                        <div class="featured-badge">Lead</div>
+                    </div>
+                    <h3 class="card-name">Danial Myrzatayev</h3>
+                    <p class="card-role">UX/UI Designer & Frontend Developer</p>
+                    <div class="card-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
                 </div>
-                <div class="member">
-                    <img src="../images/dima.png" alt="Member 3" class="team-photo">
-                    <p>Archin Munjal — UX/UI designer and Frontend Developer</p>
+
+                <div class="team-card">
+                    <div class="card-avatar">
+                        <img src="../images/leon.webp" alt="Archin Munjal" class="avatar-img">
+                    </div>
+                    <h3 class="card-name">Archin Munjal</h3>
+                    <p class="card-role">UX/UI Designer & Frontend Developer</p>
+                    <div class="card-skills">
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Animation</span>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="footer-section">
-        <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                This website was made by <span class="highlight">Danial Myrzatayev</span> and 
+                <span class="highlight">Dmitriy Belyaikin</span>
+            </p>
+            <p class="footer-copy">© 2025 Coolest Theater. All rights reserved.</p>
+        </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-    <script src="about.js"></script>
 </body>
 </html>

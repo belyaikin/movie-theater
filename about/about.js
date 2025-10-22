@@ -1,157 +1,147 @@
-// JavaScript file for about.html
-// Popup Subscription Form and Theme Change Functionality
-
-// Get DOM elements
-const subscribeBtn = document.getElementById('subscribeBtn');
-const popupForm = document.getElementById('popupForm');
-const closeBtn = document.getElementById('closeBtn');
-const subscriptionForm = document.getElementById('subscriptionForm');
-const colorBtn = document.getElementById('colorBtn');
-const body = document.body;
-
-// Show popup when subscribe button is clicked
-subscribeBtn.addEventListener('click', function() {
-    popupForm.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-});
-
-// Hide popup when close button is clicked
-closeBtn.addEventListener('click', function() {
-    popupForm.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-});
-
-// Hide popup when clicking outside the form
-popupForm.addEventListener('click', function(e) {
-    if (e.target === popupForm) {
-        popupForm.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-});
-
-// Hide popup when pressing Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && popupForm.style.display === 'block') {
-        popupForm.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-});
-
-// Handle form submission
-subscriptionForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const languageSelect = document.getElementById('languageSelect');
     
-    // Get form data
-    const formData = new FormData(subscriptionForm);
-    const data = Object.fromEntries(formData);
+    loadSavedLanguage();
     
-    // Simple validation
-    if (!data.firstName || !data.lastName || !data.email) {
-        alert('Please fill in all required fields.');
-        return;
+    languageSelect.addEventListener('change', function() {
+        const selectedLang = this.value;
+        changeLanguage(selectedLang);
+        saveLanguage(selectedLang);
+    });
+    
+    function changeLanguage(lang) {
+        switch (lang) {
+            case 'ru':
+                updateContentRussian();
+                break;
+            case 'kk':
+                updateContentKazakh();
+                break;
+            case 'en':
+                updateContentEnglish();
+                break;
+            default:
+                updateContentRussian(); 
+        }
     }
     
-    // Simulate form submission (in real app, you'd send to server)
-    alert('Thank you for subscribing! You will receive updates soon.');
-    
-    // Reset form and hide popup
-    subscriptionForm.reset();
-    popupForm.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-});
-
-// Background Color Change Functionality
-const colorThemes = [
-    {
-        name: 'Dark Theme',
-        background: '#121212',
-        color: '#f4f4f4',
-        accent: '#e74c3c'
-    },
-    {
-        name: 'Ocean Blue',
-        background: '#0a1929',
-        color: '#e3f2fd',
-        accent: '#2196f3'
-    },
-    {
-        name: 'Forest Green',
-        background: '#1b2e1b',
-        color: '#e8f5e8',
-        accent: '#4caf50'
-    },
-    {
-        name: 'Sunset Orange',
-        background: '#2d1b1b',
-        color: '#fff3e0',
-        accent: '#ff9800'
-    },
-    {
-        name: 'Royal Purple',
-        background: '#1a1a2e',
-        color: '#f3e5f5',
-        accent: '#9c27b0'
-    },
-    {
-        name: 'Midnight Navy',
-        background: '#0f1419',
-        color: '#e1f5fe',
-        accent: '#03a9f4'
+    function updateContentRussian() {
+        document.querySelector('.hero-title').innerHTML = 
+            '<span class="star">★</span>Добро пожаловать в Duo.kz!<span class="star">★</span>';
+        document.querySelector('.hero-text').textContent = 
+            'Мы команда киноманов, создающая удобный сайт для любителей кино.';
+        document.querySelector('.hero-subtitle').textContent = 
+            'На нашем портале вы можете найти информацию о новых фильмах, купить билеты и следить за рейтингами любимых фильмов.';
+        
+        document.querySelector('.section-title').innerHTML = 
+            '<span class="title-line"></span>Наша команда<span class="title-line"></span>';
+        
+        const teamNames = document.querySelectorAll('.card-name');
+        const teamRoles = document.querySelectorAll('.card-role');
+        
+        teamNames[0].textContent = 'Дмитрий Белякин';
+        teamNames[1].textContent = 'Даниал Мырзатаев';
+        
+        teamRoles[0].textContent = 'UX/UI дизайнер';
+        teamRoles[1].textContent = 'UX/UI дизайнер и Frontend разработчик';
+        
+        document.querySelector('.footer-text').innerHTML = 
+            'Этот сайт создан <span class="highlight">Даниалом Мырзатаевым</span> и <span class="highlight">Дмитрием Белякиным</span>';
+        
+        updateNavbarRussian();
     }
-];
-
-let currentThemeIndex = 0;
-
-// Function to apply theme
-function applyTheme(theme) {
-    body.style.backgroundColor = theme.background;
-    body.style.color = theme.color;
     
-    // Update CSS custom properties for accent colors
-    document.documentElement.style.setProperty('--accent-color', theme.accent);
-    
-    // Update button text to show current theme
-    colorBtn.innerHTML = `🎨 ${theme.name}`;
-}
-
-// Function to cycle through themes
-function changeBackgroundColor() {
-    currentThemeIndex = (currentThemeIndex + 1) % colorThemes.length;
-    const newTheme = colorThemes[currentThemeIndex];
-    applyTheme(newTheme);
-    
-    // Save theme preference to localStorage
-    localStorage.setItem('selectedTheme', currentThemeIndex);
-    
-    // Add a subtle animation effect
-    body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
-    setTimeout(() => {
-        body.style.transition = '';
-    }, 500);
-}
-
-// Load saved theme on page load
-function loadSavedTheme() {
-    const savedThemeIndex = localStorage.getItem('selectedTheme');
-    if (savedThemeIndex !== null) {
-        currentThemeIndex = parseInt(savedThemeIndex);
-        applyTheme(colorThemes[currentThemeIndex]);
-    } else {
-        // Default theme
-        applyTheme(colorThemes[0]);
+    function updateContentKazakh() {
+        document.querySelector('.hero-title').innerHTML = 
+            '<span class="star">★</span>Duo.kz-ге қош келдіңіз!<span class="star">★</span>';
+        document.querySelector('.hero-text').textContent = 
+            'Біз кино сүйер адамдар тобымыз, кино сүйгіштерге арналған ыңғайлы сайт жасаймыз.';
+        document.querySelector('.hero-subtitle').textContent = 
+            'Порталымызда жаңа фильмдер туралы ақпарат табуға, билет сатып алуға және сүйікті фильмдеріңіздің рейтингтерін бақылауға болады.';
+        
+        document.querySelector('.section-title').innerHTML = 
+            '<span class="title-line"></span>Біздің команда<span class="title-line"></span>';
+        
+        const teamNames = document.querySelectorAll('.card-name');
+        const teamRoles = document.querySelectorAll('.card-role');
+        
+        teamNames[0].textContent = 'Дмитрий Белякин';
+        teamNames[1].textContent = 'Даниал Мырзатаев';
+        
+        teamRoles[0].textContent = 'UX/UI дизайнер';
+        teamRoles[1].textContent = 'UX/UI дизайнер және Frontend әзірлеуші';
+        
+        document.querySelector('.footer-text').innerHTML = 
+            'Бұл сайт <span class="highlight">Даниал Мырзатаев</span> және <span class="highlight">Дмитрий Белякин</span> жасаған';
+        
+        updateNavbarKazakh();
     }
-}
-
-// Add click event listener to color button
-colorBtn.addEventListener('click', changeBackgroundColor);
-
-// Load saved theme when page loads
-loadSavedTheme();
-
-// Add keyboard shortcut (Ctrl/Cmd + T) for theme change
-document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 't') {
-        e.preventDefault();
-        changeBackgroundColor();
+    
+    function updateContentEnglish() {
+        document.querySelector('.hero-title').innerHTML = 
+            '<span class="star">★</span>Welcome to Duo.kz!<span class="star">★</span>';
+        document.querySelector('.hero-text').textContent = 
+            'We are a team of film enthusiasts creating a convenient website for movie lovers.';
+        document.querySelector('.hero-subtitle').textContent = 
+            'On our portal you can find information about new films, buy tickets and follow the ratings of your favorite films.';
+        
+        document.querySelector('.section-title').innerHTML = 
+            '<span class="title-line"></span>Our Team<span class="title-line"></span>';
+        
+        const teamNames = document.querySelectorAll('.card-name');
+        const teamRoles = document.querySelectorAll('.card-role');
+        
+        teamNames[0].textContent = 'Dmitriy Belyaikin';
+        teamNames[1].textContent = 'Danial Myrzatayev';
+        
+        teamRoles[0].textContent = 'UX/UI Designer';
+        teamRoles[1].textContent = 'UX/UI Designer & Frontend Developer';
+        
+        document.querySelector('.footer-text').innerHTML = 
+            'This website was made by <span class="highlight">Danial Myrzatayev</span> and <span class="highlight">Dmitriy Belyaikin</span>';
+        
+        updateNavbarEnglish();
+    }
+    
+    function updateNavbarRussian() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks[0].textContent = 'Фильмы';
+        navLinks[1].textContent = 'Билеты';
+        navLinks[2].textContent = 'Популярное';
+        navLinks[3].textContent = 'Кафе';
+        navLinks[4].textContent = 'О нас';
+        navLinks[5].textContent = 'Отзывы';
+    }
+    
+    function updateNavbarKazakh() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks[0].textContent = 'Фильмдер';
+        navLinks[1].textContent = 'Билеттер';
+        navLinks[2].textContent = 'Популярлы';
+        navLinks[3].textContent = 'Кафе';
+        navLinks[4].textContent = 'Біз туралы';
+        navLinks[5].textContent = 'Пікірлер';
+    }
+    
+    function updateNavbarEnglish() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks[0].textContent = 'Movies';
+        navLinks[1].textContent = 'Tickets';
+        navLinks[2].textContent = 'Popular';
+        navLinks[3].textContent = 'Cafe';
+        navLinks[4].textContent = 'About';
+        navLinks[5].textContent = 'Feedbacks';
+    }
+    
+    function saveLanguage(lang) {
+        localStorage.setItem('selectedLanguage', lang);
+    }
+    
+    function loadSavedLanguage() {
+        const savedLang = localStorage.getItem('selectedLanguage');
+        if (savedLang) {
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+        }
     }
 });

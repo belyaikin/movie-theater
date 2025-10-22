@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="feedbacks.css"> 
     <script src="feedbacks.js" defer></script> 
@@ -12,31 +12,19 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../movies/movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../top/top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about/about.html">About Us</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="../movies/movies.html">Movies</a></li>
+                <li class="nav-item"><a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a></li>
+                <li class="nav-item"><a class="nav-link" href="../top/top.html">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="../cafepage/cafe.html">Cafe</a></li>
+                <li class="nav-item"><a class="nav-link" href="../about/about.html">About Us</a></li>
                 <li class="nav-item">
                     <a href="../auth/auth.html">
-                    <button type="button" class="btn btn-danger">Login</button>
+                        <button type="button" class="btn btn-danger">Login</button>
                     </a>
                 </li>
             </ul>
@@ -60,7 +48,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button">
@@ -73,7 +60,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button">
@@ -87,8 +73,61 @@
                 </div>
             </div>
         </div>
+        <div class="text-center mt-4">
+            <button id="loadMoreBtn" class="btn btn-danger btn-lg">Load more feedbacks</button>
+            <button id="addReviewBtn" class="btn btn-primary btn-lg ms-2">Leave a feedback</button>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"></script>
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content custom-modal">
+                <div class="modal-header custom-modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel">Leave your feedback</h5>
+                    <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body custom-modal-body">
+                    <form id="reviewForm">
+                        <div class="mb-3">
+                            <label for="reviewName" class="form-label custom-label">Your name</label>
+                            <input type="text" class="form-control custom-input" id="reviewName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reviewText" class="form-label custom-label">Your feedback</label>
+                            <textarea class="form-control custom-input" id="reviewText" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label custom-label">Rating (1-5)</label>
+                            <div class="d-flex justify-content-start">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-radio" type="radio" name="rating" id="rating1" value="1">
+                                    <label class="form-check-label custom-label" for="rating1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-radio" type="radio" name="rating" id="rating2" value="2">
+                                    <label class="form-check-label custom-label" for="rating2">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-radio" type="radio" name="rating" id="rating3" value="3">
+                                    <label class="form-check-label custom-label" for="rating3">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-radio" type="radio" name="rating" id="rating4" value="4">
+                                    <label class="form-check-label custom-label" for="rating4">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-radio" type="radio" name="rating" id="rating5" value="5" checked>
+                                    <label class="form-check-label custom-label" for="rating5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary custom-submit-btn">Send feedback</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

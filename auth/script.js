@@ -71,3 +71,5 @@ document.addEventListener('DOMContentLoaded', function() {
     usernameInput.addEventListener('input', clearErrors);
     passwordInput.addEventListener('input', clearErrors);
 });
+
+
