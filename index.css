@@ -11,9 +11,17 @@ body {
     line-height: 1.6;
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 .main-content {
     padding: 40px 20px;
     text-align: center;
+    padding-bottom: 60px; 
 }
 
 .about-intro {
@@ -32,6 +40,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .footer-section p {
@@ -62,6 +71,7 @@ body {
     position: relative;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     animation: slideIn 0.3s ease-out;
+    box-sizing: border-box;
 }
 
 .close-btn {
@@ -153,6 +163,8 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    min-height: 44px; 
+    touch-action: manipulation;
 }
 
 .btn-submit:hover {
@@ -165,7 +177,12 @@ body {
     transform: translateY(0);
 }
 
-/* Animations */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -182,24 +199,38 @@ body {
     }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+        padding-bottom: 80px;
+    }
+
+    .popup-overlay {
+        backdrop-filter: none; 
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
     .popup-content {
         margin: 10% auto;
         width: 95%;
         padding: 20px;
+        animation: none; 
     }
-    
+
     .popup-content h3 {
         font-size: 20px;
     }
-    
+
     .form-group input,
     .form-group select {
         font-size: 14px;
         padding: 10px 12px;
     }
-    
+
     .btn-submit {
         padding: 12px;
         font-size: 14px;
@@ -208,21 +239,44 @@ body {
 
 @media (max-width: 480px) {
     .popup-content {
-        margin: 15% auto;
+        margin: 10% auto;
         padding: 15px;
+        width: 90%;
+        max-width: 100%;
     }
-    
+
+    .popup-content h3 {
+        font-size: 18px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .btn-submit {
+        padding: 10px;
+        font-size: 13px;
+    }
+
     .close-btn {
-        right: 10px;
-        top: 10px;
-        font-size: 24px;
+        right: 8px;
+        top: 8px;
+        font-size: 20px;
     }
 }
 
-/* Theme Change Button Styles */
 #colorBtn {
     transition: all 0.3s ease;
     font-weight: 600;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
 }
 
 #colorBtn:hover {
@@ -234,7 +288,6 @@ body {
     transform: translateY(0);
 }
 
-/* Dynamic accent color support */
 .navbar-brand img,
 .popup-content h3,
 .btn-submit,
@@ -250,18 +303,15 @@ body {
     background: linear-gradient(45deg, #c0392b, #a93226) !important;
 }
 
-/* Theme transition animations */
 .theme-transition {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Enhanced navbar styling for different themes */
 .navbar-dark.bg-dark {
     background-color: rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(10px);
 }
 
-/* Footer styling to work with themes */
 .footer-section {
     background-color: rgba(0, 0, 0, 0.9) !important;
     backdrop-filter: blur(10px);
