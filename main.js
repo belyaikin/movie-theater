@@ -1,66 +1,69 @@
-// Main JavaScript file for index.html
-// Popup Subscription Form and Theme Change Functionality
-
-// Get DOM elements
 const subscribeBtn = document.getElementById('subscribeBtn');
 const popupForm = document.getElementById('popupForm');
 const closeBtn = document.getElementById('closeBtn');
 const subscriptionForm = document.getElementById('subscriptionForm');
 const colorBtn = document.getElementById('colorBtn');
 const body = document.body;
+const timeText = document.getElementById('time');
 
-// Show popup when subscribe button is clicked
-subscribeBtn.addEventListener('click', function() {
+// Date display
+const date = new Date();
+const months = {
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December',
+};
+timeText.textContent = `Today is ${date.getDate()} of ${months[date.getMonth()]}, ${date.getFullYear()}`;
+
+// Popup form handling
+subscribeBtn.addEventListener('click', () => {
     popupForm.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
 });
 
-// Hide popup when close button is clicked
-closeBtn.addEventListener('click', function() {
+closeBtn.addEventListener('click', () => {
     popupForm.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    document.body.style.overflow = 'auto';
 });
 
-// Hide popup when clicking outside the form
-popupForm.addEventListener('click', function(e) {
+popupForm.addEventListener('click', (e) => {
     if (e.target === popupForm) {
         popupForm.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto';
     }
 });
 
-// Hide popup when pressing Escape key
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && popupForm.style.display === 'block') {
         popupForm.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto';
     }
 });
 
-// Handle form submission
-subscriptionForm.addEventListener('submit', function(e) {
+subscriptionForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Get form data
     const formData = new FormData(subscriptionForm);
     const data = Object.fromEntries(formData);
-    
-    // Simple validation
     if (!data.firstName || !data.lastName || !data.email) {
         alert('Please fill in all required fields.');
         return;
     }
-    
-    // Simulate form submission (in real app, you'd send to server)
     alert('Thank you for subscribing! You will receive updates soon.');
-    
-    // Reset form and hide popup
     subscriptionForm.reset();
     popupForm.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    document.body.style.overflow = 'auto';
 });
 
-// Background Color Change Functionality
+// Theme switching
 const colorThemes = [
     {
         name: 'Dark Theme',
@@ -102,54 +105,38 @@ const colorThemes = [
 
 let currentThemeIndex = 0;
 
-// Function to apply theme
 function applyTheme(theme) {
     body.style.backgroundColor = theme.background;
     body.style.color = theme.color;
-    
-    // Update CSS custom properties for accent colors
     document.documentElement.style.setProperty('--accent-color', theme.accent);
-    
-    // Update button text to show current theme
     colorBtn.innerHTML = `🎨 ${theme.name}`;
 }
 
-// Function to cycle through themes
 function changeBackgroundColor() {
     currentThemeIndex = (currentThemeIndex + 1) % colorThemes.length;
     const newTheme = colorThemes[currentThemeIndex];
     applyTheme(newTheme);
-    
-    // Save theme preference to localStorage
     localStorage.setItem('selectedTheme', currentThemeIndex);
-    
-    // Add a subtle animation effect
     body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
     setTimeout(() => {
         body.style.transition = '';
     }, 500);
 }
 
-// Load saved theme on page load
 function loadSavedTheme() {
     const savedThemeIndex = localStorage.getItem('selectedTheme');
     if (savedThemeIndex !== null) {
         currentThemeIndex = parseInt(savedThemeIndex);
         applyTheme(colorThemes[currentThemeIndex]);
     } else {
-        // Default theme
         applyTheme(colorThemes[0]);
     }
 }
 
-// Add click event listener to color button
 colorBtn.addEventListener('click', changeBackgroundColor);
-
-// Load saved theme when page loads
 loadSavedTheme();
 
-// Add keyboard shortcut (Ctrl/Cmd + T) for theme change
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 't') {
         e.preventDefault();
         changeBackgroundColor();
