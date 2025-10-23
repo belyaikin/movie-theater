@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const addReviewBtn = document.getElementById('addReviewBtn');
     const reviewModal = document.getElementById('reviewModal');
     const reviewForm = document.getElementById('reviewForm');
+    const dayNightToggle = document.getElementById('dayNightToggle');
+    const body = document.body;
 
     accordionButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -221,4 +223,102 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Один или несколько элементов не найдены или bootstrap не загружен:', { addReviewBtn, reviewModal, reviewForm, accordion, bootstrap: typeof bootstrap });
     }
+
+    // Star Rating System
+    function initializeStarRating() {
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('ratingInput');
+        const ratingText = document.getElementById('ratingText');
+        
+        if (!stars.length || !ratingInput || !ratingText) return;
+
+        let currentRating = 5; // Default rating
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', function() {
+                currentRating = parseInt(this.dataset.rating);
+                updateStarDisplay();
+                updateRatingText();
+            });
+
+            star.addEventListener('mouseenter', function() {
+                const hoverRating = parseInt(this.dataset.rating);
+                highlightStars(hoverRating);
+            });
+        });
+
+        document.getElementById('starRating').addEventListener('mouseleave', function() {
+            updateStarDisplay();
+        });
+
+        function updateStarDisplay() {
+            stars.forEach((star, index) => {
+                const starRating = parseInt(star.dataset.rating);
+                star.classList.remove('active', 'rated');
+                
+                if (starRating <= currentRating) {
+                    star.classList.add('rated');
+                }
+            });
+            ratingInput.value = currentRating;
+        }
+
+        function highlightStars(rating) {
+            stars.forEach((star, index) => {
+                const starRating = parseInt(star.dataset.rating);
+                star.classList.remove('active');
+                
+                if (starRating <= rating) {
+                    star.classList.add('active');
+                }
+            });
+        }
+
+        function updateRatingText() {
+            const ratingTexts = {
+                1: 'Poor',
+                2: 'Fair', 
+                3: 'Good',
+                4: 'Very Good',
+                5: 'Excellent'
+            };
+            ratingText.textContent = ratingTexts[currentRating] || 'Click to rate';
+        }
+
+        // Initialize with default rating
+        updateStarDisplay();
+        updateRatingText();
+    }
+
+    // Day/Night Theme Toggle
+    function initializeDayNightToggle() {
+        if (!dayNightToggle) return;
+
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('dayNightTheme');
+        if (savedTheme === 'day') {
+            body.classList.add('day-theme');
+            dayNightToggle.innerHTML = '☀️ Day Mode';
+        } else {
+            dayNightToggle.innerHTML = '🌙 Night Mode';
+        }
+
+        dayNightToggle.addEventListener('click', function() {
+            if (body.classList.contains('day-theme')) {
+                // Switch to night mode
+                body.classList.remove('day-theme');
+                this.innerHTML = '🌙 Night Mode';
+                localStorage.setItem('dayNightTheme', 'night');
+            } else {
+                // Switch to day mode
+                body.classList.add('day-theme');
+                this.innerHTML = '☀️ Day Mode';
+                localStorage.setItem('dayNightTheme', 'day');
+            }
+        });
+    }
+
+    // Initialize features
+    initializeStarRating();
+    initializeDayNightToggle();
 });
