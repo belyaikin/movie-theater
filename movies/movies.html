@@ -25,7 +25,7 @@
                     <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Movies</a>
+                    <a class="nav-link active" href="#">Movies</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
@@ -44,8 +44,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="../auth/auth.html">
-                    <button type="button" class="btn btn-danger">Login</button>
+                        <button type="button" class="btn btn-danger">Login</button>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-success me-2" id="subscribeBtn">Subscribe</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-warning me-2" id="colorBtn">🎨 Theme</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-info me-2" id="dayNightToggle">🌙 Night Mode</button>
                 </li>
             </ul>
         </div>
@@ -98,30 +107,63 @@
     </div>
 
     <div class="card-group">
-        <div class="card mv-one">
+        <div class="card mv-one movie-card" data-movie="breaking-bad">
             <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
+                <div class="movie-rating">
+                    <div class="star-rating" data-movie="breaking-bad">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <span class="rating-text">Rate this movie</span>
+                </div>
                 <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
             </div>
         </div>
     
-        <div class="card mv-two">
+        <div class="card mv-two movie-card" data-movie="better-call-saul">
             <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
+                <div class="movie-rating">
+                    <div class="star-rating" data-movie="better-call-saul">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <span class="rating-text">Rate this movie</span>
+                </div>
                 <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
             </div>
         </div>
 
-        <div class="card mv-three">
+        <div class="card mv-three movie-card" data-movie="el-camino">
             <img src="" class="card-img-top" alt="Movie image">
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
+                <div class="movie-rating">
+                    <div class="star-rating" data-movie="el-camino">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <span class="rating-text">Rate this movie</span>
+                </div>
                 <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
             </div>
         </div>
     </div>
@@ -137,9 +179,9 @@
 
         const cards = ['mv-one', 'mv-two', 'mv-three']
         const movies = [
-            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "Waltuh"),
-            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "Saul goodman"),
-            new MovieCard("../images/elcamino.jpg", "El Camino", "idk i havent watched it but people say its bad")
+            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future."),
+            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "The trials and tribulations of criminal lawyer Jimmy McGill in the time before he established his strip-mall law office in Albuquerque, New Mexico."),
+            new MovieCard("../images/elcamino.jpg", "El Camino", "A Netflix film sequel to Breaking Bad, following Jesse Pinkman after the events of the series finale.")
         ]
 
         for (let i = 0; i < cards.length; i++) {
