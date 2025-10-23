@@ -90,3 +90,140 @@
 .custom-close-btn {
     filter: invert(1) sepia(1) hue-rotate(0deg) saturate(10000%); 
 }
+
+/* Star Rating System */
+.star-rating-container {
+    margin: 10px 0;
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.star:hover,
+.star.active {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.star.rated {
+    color: #ffd700;
+}
+
+.rating-text {
+    color: #ff6666;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Day/Night Theme Styles */
+body.day-theme {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.day-theme .accordion-item {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+body.day-theme .accordion-button {
+    color: #495057;
+    background-color: #ffffff;
+}
+
+body.day-theme .accordion-button:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+body.day-theme .accordion-collapse {
+    background-color: #ffffff;
+    color: #495057;
+}
+
+body.day-theme .container {
+    background-color: #ffffff;
+    color: #212529;
+}
+
+body.day-theme .custom-modal {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    color: #212529;
+}
+
+body.day-theme .custom-modal-header {
+    background-color: #007bff;
+    border-bottom: 2px solid #0056b3;
+}
+
+body.day-theme .custom-modal-body {
+    background-color: #f8f9fa;
+}
+
+body.day-theme .custom-label {
+    color: #495057;
+}
+
+body.day-theme .custom-input {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #212529;
+}
+
+body.day-theme .custom-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+}
+
+body.day-theme .custom-radio {
+    accent-color: #007bff;
+}
+
+body.day-theme .custom-submit-btn {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+}
+
+body.day-theme .custom-submit-btn:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+body.day-theme .star {
+    color: #ccc;
+}
+
+body.day-theme .star:hover,
+body.day-theme .star.active {
+    color: #ffc107;
+}
+
+body.day-theme .star.rated {
+    color: #ffc107;
+}
+
+body.day-theme .rating-text {
+    color: #495057;
+}
+
+/* Theme Toggle Button */
+#dayNightToggle {
+    transition: all 0.3s ease;
+}
+
+#dayNightToggle:hover {
+    transform: scale(1.05);
+}
