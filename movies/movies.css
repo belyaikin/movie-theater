@@ -64,3 +64,147 @@
     max-width: 90%;
     max-height: 90%;
 }
+
+/* Movie Card Interactive Styles */
+.movie-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color, #e74c3c);
+}
+
+.movie-rating {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.star-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.star:hover,
+.star.active {
+    color: #ffd700;
+    transform: scale(1.2);
+}
+
+.star.rated {
+    color: #ffd700;
+}
+
+.rating-text {
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.toggle-description {
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.toggle-description:hover {
+    transform: scale(1.05);
+}
+
+/* Dynamic content styles */
+.card-text.expanded {
+    max-height: none;
+    overflow: visible;
+}
+
+.card-text.collapsed {
+    max-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Movie card animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.movie-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.movie-card:nth-child(1) { animation-delay: 0.1s; }
+.movie-card:nth-child(2) { animation-delay: 0.2s; }
+.movie-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Day/Night Theme Styles */
+body.day-theme {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.day-theme .da-big-text p {
+    color: #007bff;
+}
+
+body.day-theme .da-small-text p {
+    color: #007bff;
+}
+
+body.day-theme .movie-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+body.day-theme .movie-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+body.day-theme .star {
+    color: #ccc;
+}
+
+body.day-theme .star:hover,
+body.day-theme .star.active {
+    color: #ffc107;
+}
+
+body.day-theme .star.rated {
+    color: #ffc107;
+}
+
+body.day-theme .rating-text {
+    color: #495057;
+}
+
+body.day-theme .toggle-description {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+body.day-theme .toggle-description:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Theme Toggle Button */
+#dayNightToggle {
+    transition: all 0.3s ease;
+}
+
+#dayNightToggle:hover {
+    transform: scale(1.05);
+}
