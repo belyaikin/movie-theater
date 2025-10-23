@@ -369,3 +369,101 @@ body {
         max-width: 500px;
     }
 }
+
+/* Day/Night Theme Styles */
+body.day-theme {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.day-theme .navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #dee2e6;
+}
+
+body.day-theme .navbar-brand,
+body.day-theme .nav-link {
+    color: #212529 !important;
+}
+
+body.day-theme .time-text {
+    color: #007bff;
+}
+
+body.day-theme .big-cool-text p {
+    color: #007bff;
+}
+
+body.day-theme .fact p {
+    color: #495057;
+}
+
+body.day-theme .viewers p {
+    color: #495057;
+}
+
+body.day-theme .footer-section {
+    background-color: #ffffff;
+    color: #007bff;
+    border-top: 1px solid #dee2e6;
+}
+
+body.day-theme .popup-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #dee2e6;
+    color: #212529;
+}
+
+body.day-theme .popup-content h3 {
+    color: #007bff;
+}
+
+body.day-theme .popup-content p {
+    color: #495057;
+}
+
+body.day-theme .form-group input,
+body.day-theme .form-group select {
+    background-color: #ffffff;
+    border: 2px solid #dee2e6;
+    color: #212529;
+}
+
+body.day-theme .form-group input:focus,
+body.day-theme .form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+body.day-theme .form-group input::placeholder {
+    color: #6c757d;
+}
+
+body.day-theme .form-group label {
+    color: #495057;
+}
+
+body.day-theme .btn-submit {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+body.day-theme .btn-submit:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+}
+
+body.day-theme .close-btn {
+    color: #6c757d;
+}
+
+body.day-theme .close-btn:hover {
+    color: #007bff;
+}
+
+/* Theme Toggle Button */
+#dayNightToggle {
+    transition: all 0.3s ease;
+}
+
+#dayNightToggle:hover {
+    transform: scale(1.05);
+}
