@@ -22,13 +22,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../movies/movies.html">Movies</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Popular</a>
+                    <a class="nav-link active" href="#">Popular</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
@@ -37,13 +40,68 @@
                     <a class="nav-link" href="../about/about.html">About Us</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
+                </li>
+                <li class="nav-item">
                     <a href="../auth/auth.html">
-                    <button type="button" class="btn btn-danger">Login</button>
+                        <button type="button" class="btn btn-danger">Login</button>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-success me-2" id="subscribeBtn">Subscribe</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-warning me-2" id="colorBtn">🎨 Theme</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-info me-2" id="dayNightToggle">🌙 Night Mode</button>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <div id="popupForm" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get the latest movie updates, special offers, and exclusive content!</p>
+            <form id="subscriptionForm">
+                <div class="form-group">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <select id="preferences" name="preferences">
+                        <option value="">Select your movie preferences</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="all">All Genres</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        I want to receive weekly movie updates
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="offers" name="offers" checked>
+                        I want to receive special offers and discounts
+                    </label>
+                </div>
+                <button type="submit" class="btn-submit">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
         
         <main class="main-content">
             <section class="gallery">
@@ -89,5 +147,8 @@
             <p>&copy; This website was made by team Tegs and Style.</p>
         </footer>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../main.js"></script>
 </body>
 </html>
