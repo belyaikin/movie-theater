@@ -3,6 +3,7 @@ const popupForm = document.getElementById('popupForm');
 const closeBtn = document.getElementById('closeBtn');
 const subscriptionForm = document.getElementById('subscriptionForm');
 const colorBtn = document.getElementById('colorBtn');
+const dayNightToggle = document.getElementById('dayNightToggle');
 const body = document.body;
 const timeText = document.getElementById('time');
 
@@ -135,6 +136,37 @@ function loadSavedTheme() {
 
 colorBtn.addEventListener('click', changeBackgroundColor);
 loadSavedTheme();
+
+// Day/Night Theme Toggle
+function initializeDayNightToggle() {
+    if (!dayNightToggle) return;
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('dayNightTheme');
+    if (savedTheme === 'day') {
+        body.classList.add('day-theme');
+        dayNightToggle.innerHTML = '☀️ Day Mode';
+    } else {
+        dayNightToggle.innerHTML = '🌙 Night Mode';
+    }
+
+    dayNightToggle.addEventListener('click', function() {
+        if (body.classList.contains('day-theme')) {
+            // Switch to night mode
+            body.classList.remove('day-theme');
+            this.innerHTML = '🌙 Night Mode';
+            localStorage.setItem('dayNightTheme', 'night');
+        } else {
+            // Switch to day mode
+            body.classList.add('day-theme');
+            this.innerHTML = '☀️ Day Mode';
+            localStorage.setItem('dayNightTheme', 'day');
+        }
+    });
+}
+
+// Initialize day/night toggle
+initializeDayNightToggle();
 
 document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 't') {
