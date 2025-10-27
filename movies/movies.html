@@ -190,6 +190,10 @@
             card.querySelector(".card-img-top").src = movies[i].image
             card.querySelector(".card-title").textContent = movies[i].title
             card.querySelector(".card-text").textContent = movies[i].description
+
+            card.addEventListener("click", () => {
+                new Audio("../audio/beep.wav").play();
+            })
         }
     </script>
 
