@@ -198,12 +198,17 @@
                 new Audio("../audio/beep.wav").play();
             })
 
-            document.getElementById(cards[i]+'-copy-btn').addEventListener('click', () => {
+            let copyBtn = document.getElementById(cards[i]+'-copy-btn');
+
+            copyBtn.addEventListener('click', () => {
               try {
                 navigator.clipboard.writeText(movies[i].title);
-                alert('copied to clipboard ' + movies[i].title)
+
+                copyBtn.textContent = "✅";
               } catch (err) {
                 console.err('Unable to copy to clipboard')
+
+                copyBtn.textContent = "❌";
               }
             })
         }
