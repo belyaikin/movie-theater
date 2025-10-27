@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="feedbacks.css"> 
@@ -55,6 +56,8 @@
             </ul>
         </div>
     </nav>
+
+
 
     <div id="popupForm" class="popup-overlay">
         <div class="popup-content">
@@ -178,11 +181,18 @@
                                 <input type="hidden" name="rating" id="ratingInput" value="5">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary custom-submit-btn">Send feedback</button>
+                        <button type="submit" class="btn btn-primary custom-submit-btn">
+                            <span>Send feedback</span> 
+                            <div class="spinner"></div> 
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="stats-section">
+    <p >Users Visited: <span id="user-counter">100000</span></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

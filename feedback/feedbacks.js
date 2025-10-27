@@ -133,63 +133,75 @@ document.addEventListener('DOMContentLoaded', function() {
             modalInstance.show();
         });
 
-        reviewForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            handleReviewSubmit((response) => {
-                if (response.success) {
-                    const item = document.createElement('div');
-                    item.className = 'accordion-item';
-                    const collapseId = `collapse-${Date.now()}-${Math.random()}`;
-                    item.innerHTML = `
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" id="${collapseId}-btn" aria-expanded="false">
-                                ${response.name} - Рейтинг: ${response.rating} звезд - ${new Date().toLocaleDateString('ru-RU')}
-                            </button>
-                        </h2>
-                        <div id="${collapseId}" class="accordion-collapse collapse" aria-labelledby="${collapseId}-btn">
-                            <div class="accordion-body">
-                                ${response.text}
-                            </div>
+    reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const $submitButton = $('.custom-submit-btn'); 
+
+    $submitButton.addClass('loading').attr('disabled', true);
+    $submitButton.find('span').text('Please wait...');
+
+    handleReviewSubmit((response) => {
+        if (response.success) {
+            setTimeout(() => {
+                const item = document.createElement('div');
+                item.className = 'accordion-item';
+                const collapseId = `collapse-${Date.now()}-${Math.random()}`;
+                item.innerHTML = `
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" id="${collapseId}-btn" aria-expanded="false">
+                            ${response.name} - Рейтинг: ${response.rating} звезд - ${new Date().toLocaleDateString('ru-RU')}
+                        </button>
+                    </h2>
+                    <div id="${collapseId}" class="accordion-collapse collapse" aria-labelledby="${collapseId}-btn">
+                        <div class="accordion-body">
+                            ${response.text}
                         </div>
-                    `;
-                    accordion.appendChild(item);
+                    </div>
+                `;
+                accordion.appendChild(item);
 
-                    const newButton = item.querySelector('.accordion-button');
-                    newButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const header = this.closest('.accordion-header');
-                        const collapseElement = header.nextElementSibling;
-                        const isCollapsed = this.classList.contains('collapsed');
+                const newButton = item.querySelector('.accordion-button');
+                newButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const header = this.closest('.accordion-header');
+                    const collapseElement = header.nextElementSibling;
+                    const isCollapsed = this.classList.contains('collapsed');
 
-                        if (isCollapsed) {
-                            const allCollapseElements = document.querySelectorAll('.accordion-collapse');
-                            allCollapseElements.forEach(el => {
-                                if (el !== collapseElement) {
-                                    el.classList.remove('show');
-                                    const btn = el.previousElementSibling.querySelector('.accordion-button');
-                                    btn.classList.add('collapsed');
-                                    btn.setAttribute('aria-expanded', 'false');
-                                }
-                            });
+                    if (isCollapsed) {
+                        const allCollapseElements = document.querySelectorAll('.accordion-collapse');
+                        allCollapseElements.forEach(el => {
+                            if (el !== collapseElement) {
+                                el.classList.remove('show');
+                                const btn = el.previousElementSibling.querySelector('.accordion-button');
+                                btn.classList.add('collapsed');
+                                btn.setAttribute('aria-expanded', 'false');
+                            }
+                        });
 
-                            collapseElement.classList.add('show');
-                            this.classList.remove('collapsed');
-                            this.setAttribute('aria-expanded', 'true');
-                        } else {
-                            collapseElement.classList.remove('show');
-                            this.classList.add('collapsed');
-                            this.setAttribute('aria-expanded', 'false');
-                        }
-                    });
+                        collapseElement.classList.add('show');
+                        this.classList.remove('collapsed');
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        collapseElement.classList.remove('show');
+                        this.classList.add('collapsed');
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                });
 
-                    reviewForm.reset();
-                    modalInstance.hide();
-                    alert('Отзыв успешно добавлен!');
-                } else {
-                    alert('Пожалуйста, заполните все поля.');
-                }
-            });
-        });
+                $submitButton.removeClass('loading').attr('disabled', false);
+                $submitButton.find('span').text('Send feedback');
+                reviewForm.reset();
+                modalInstance.hide();
+                alert('Отзыв успешно добавлен!');
+            }, 2000); 
+        } else {
+
+            $submitButton.removeClass('loading').attr('disabled', false);
+            $submitButton.find('span').text('Send feedback');
+            alert('Пожалуйста, заполните все поля.');
+        }
+    });
+});
 
 
         document.addEventListener('keydown', (e) => {
@@ -318,7 +330,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize features
+
     initializeStarRating();
     initializeDayNightToggle();
+});
+
+
+$(document).ready(function() {
+    function animateCounter() {
+        var $counter = $('#user-counter');
+        $({ countNum: 0 }).animate({
+            countNum: 100000
+        }, {
+            duration: 2000, 
+            easing: 'swing',
+            step: function() {
+                $counter.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+                $counter.text(100000); 
+            }
+        });
+    }
+
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        var sectionTop = $('.stats-section').offset().top;
+        var windowHeight = $(window).height();
+        if (scrollTop + windowHeight > sectionTop) {
+            animateCounter();
+            $(window).off('scroll'); 
+        }
+    });
+
+
+    if ($(window).scrollTop() + $(window).height() > $('.stats-section').offset().top) {
+        animateCounter();
+    }
 });
