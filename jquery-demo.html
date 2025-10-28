@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Search Demo - Movie Theater</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="search-styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+        .demo-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            background: #f8f9fa;
+        }
+        .demo-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">jQuery Search Functionality Demo</h1>
+        
+        <!-- Task 0: Setup Demo -->
+        <div class="demo-section">
+            <h2>Task 0: jQuery Setup</h2>
+            <p>jQuery is loaded and ready! Check the browser console for "jQuery is ready!" message.</p>
+            <div class="alert alert-success">
+                <strong>✓ jQuery CDN included</strong><br>
+                <strong>✓ Document ready function implemented</strong><br>
+                <strong>✓ Console test message added</strong>
+            </div>
+        </div>
+
+        <!-- Task 1: Real-time Search Demo -->
+        <div class="demo-section">
+            <h2>Task 1: Real-time Search and Live Filter</h2>
+            <p>Type in the search box below to filter the list of movies in real-time:</p>
+            
+            <div class="search-wrapper mb-4">
+                <input type="text" id="demo-search" class="form-control form-control-lg" 
+                       placeholder="Search movies by title or description...">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div id="demo-movies">
+                <div class="demo-item" data-title="Breaking Bad" data-description="A high school chemistry teacher turns to manufacturing methamphetamine">
+                    <h5>Breaking Bad</h5>
+                    <p>A high school chemistry teacher turns to manufacturing methamphetamine</p>
+                </div>
+                <div class="demo-item" data-title="Better Call Saul" data-description="The trials of criminal lawyer Jimmy McGill">
+                    <h5>Better Call Saul</h5>
+                    <p>The trials of criminal lawyer Jimmy McGill</p>
+                </div>
+                <div class="demo-item" data-title="El Camino" data-description="A Netflix film sequel to Breaking Bad">
+                    <h5>El Camino</h5>
+                    <p>A Netflix film sequel to Breaking Bad</p>
+                </div>
+                <div class="demo-item" data-title="The Office" data-description="A mockumentary about office workers">
+                    <h5>The Office</h5>
+                    <p>A mockumentary about office workers</p>
+                </div>
+                <div class="demo-item" data-title="Stranger Things" data-description="Supernatural events in a small town">
+                    <h5>Stranger Things</h5>
+                    <p>Supernatural events in a small town</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 2: Autocomplete Demo -->
+        <div class="demo-section">
+            <h2>Task 2: Autocomplete Search Suggestions</h2>
+            <p>Type in the search box below to see autocomplete suggestions:</p>
+            
+            <div class="search-wrapper mb-4">
+                <input type="text" id="demo-autocomplete" class="form-control form-control-lg" 
+                       placeholder="Type to see suggestions...">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 3: Search Highlighting Demo -->
+        <div class="demo-section">
+            <h2>Task 3: Search Highlighting</h2>
+            <p>Type in the search box below to highlight matching words in the text:</p>
+            
+            <div class="search-wrapper mb-4">
+                <input type="text" id="demo-highlight" class="form-control form-control-lg" 
+                       placeholder="Type to highlight words...">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div id="demo-content">
+                <h5>Sample Content</h5>
+                <p>This is a sample paragraph with various words that can be highlighted. 
+                   Try searching for words like "sample", "paragraph", "words", or "highlighted". 
+                   The highlighting will work across multiple sentences and different types of content.</p>
+                <p>Another paragraph with more content to search through. 
+                   You can search for "another", "paragraph", "content", or any other word. 
+                   The search is case-insensitive and will highlight all matching instances.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            console.log("jQuery is ready!");
+            
+            // Task 1: Real-time Search
+            $('#demo-search').on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                
+                $('.demo-item').each(function() {
+                    const item = $(this);
+                    const title = item.data('title').toLowerCase();
+                    const description = item.data('description').toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        item.show().removeClass('hidden');
+                    } else {
+                        item.hide().addClass('hidden');
+                    }
+                });
+            });
+
+            // Task 2: Autocomplete
+            const suggestions = [
+                "Breaking Bad",
+                "Better Call Saul", 
+                "El Camino",
+                "The Office",
+                "Stranger Things",
+                "Action Movies",
+                "Drama Series",
+                "Comedy Shows",
+                "Netflix Originals",
+                "TV Series"
+            ];
+            
+            $('#demo-autocomplete').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                
+                if (searchTerm.length < 2) {
+                    hideAutocomplete();
+                    return;
+                }
+                
+                const filteredSuggestions = suggestions.filter(suggestion => 
+                    suggestion.toLowerCase().includes(searchTerm)
+                );
+                
+                if (filteredSuggestions.length > 0) {
+                    showAutocomplete(filteredSuggestions);
+                } else {
+                    hideAutocomplete();
+                }
+            });
+            
+            function showAutocomplete(suggestions) {
+                hideAutocomplete();
+                
+                const autocompleteContainer = $('<div id="demo-autocomplete-dropdown" class="autocomplete-dropdown"></div>');
+                
+                suggestions.slice(0, 5).forEach(suggestion => {
+                    const item = $('<div class="autocomplete-item">' + suggestion + '</div>');
+                    item.on('click', function() {
+                        $('#demo-autocomplete').val(suggestion);
+                        hideAutocomplete();
+                    });
+                    autocompleteContainer.append(item);
+                });
+                
+                $('#demo-autocomplete').after(autocompleteContainer);
+            }
+            
+            function hideAutocomplete() {
+                $('#demo-autocomplete-dropdown').remove();
+            }
+
+            // Task 3: Search Highlighting
+            let originalContent = $('#demo-content').html();
+            
+            $('#demo-highlight').on('keyup', function() {
+                const searchTerm = $(this).val().trim();
+                
+                if (searchTerm.length === 0) {
+                    $('#demo-content').html(originalContent);
+                    return;
+                }
+                
+                const regex = new RegExp('(' + escapeRegExp(searchTerm) + ')', 'gi');
+                const highlightedContent = originalContent.replace(regex, '<mark class="search-highlight">$1</mark>');
+                $('#demo-content').html(highlightedContent);
+            });
+            
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            // Hide autocomplete when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('#demo-autocomplete, #demo-autocomplete-dropdown').length) {
+                    hideAutocomplete();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
