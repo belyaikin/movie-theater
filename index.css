@@ -62,26 +62,27 @@ body {
     object-fit: cover;
 }
 
+.facts_container {
+    display: flex;
+    border: solid;
+    flex-direction: column;
+    border-color: #aaa;
+}
+
 .fact {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    max-width: 1000px;
-    padding: 0 15px;
-    flex-wrap: wrap;
-    gap: 20px;
+    margin-top: 40px;
+    padding: 20px;
 }
 
 .fact img {
-    max-width: 400px;
-    height: auto;
     border-radius: 8px;
 }
 
 .fact p {
     font-size: 18px;
-    max-width: 400px;
     text-align: center;
 }
 
@@ -100,7 +101,7 @@ body {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
 }
@@ -308,7 +309,7 @@ body {
 
     .iframe-container {
         max-width: 100%;
-        padding-bottom: 75%; /* Adjust for mobile aspect ratio */
+        padding-bottom: 75%;
     }
 
     .footer-section {
@@ -372,7 +373,6 @@ body {
     }
 }
 
-/* Day/Night Theme Styles */
 body.day-theme {
     background-color: #f8f9fa;
     color: #212529;
@@ -461,7 +461,6 @@ body.day-theme .close-btn:hover {
     color: #007bff;
 }
 
-/* Theme Toggle Button */
 #dayNightToggle {
     transition: all 0.3s ease;
 }
