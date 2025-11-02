@@ -113,14 +113,51 @@ body {
 
 .footer-section {
     background-color: rgba(0, 0, 0, 0.9);
-    color: var(--accent-color, #e74c3c);
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
+    color: #fff;
+    padding: 30px 15px 15px;
+    margin-top: 40px;
     width: 100%;
-    z-index: 1000;
     font-size: 14px;
+}
+
+.footer-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h5 {
+    color: var(--accent-color, #e74c3c);
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color, #e74c3c);
+}
+
+.footer-section hr {
+    border-color: #444;
+    margin: 20px 0 15px;
+}
+
+.footer-section p {
+    color: #aaa;
+    margin: 0;
 }
 
 .popup-overlay {
@@ -254,7 +291,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 100px;
+        padding-bottom: 20px;
     }
 
     .navbar-nav {
@@ -311,7 +348,17 @@ body {
 
     .footer-section {
         font-size: 12px;
-        padding: 10px;
+        padding: 20px 15px 15px;
+        position: relative;
+    }
+
+    .footer-section h5 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .footer-section .col-md-4 {
+        margin-bottom: 20px;
     }
 
     .popup-content {
