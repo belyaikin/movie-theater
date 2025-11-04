@@ -1,181 +1,172 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+h1, h3 {
+    font-family: 'Arial', sans-serif;
+}
 
-    <link rel="stylesheet" href="top.css">
-    <link rel="stylesheet" href="../index.css">
+/* Стили для навигационного меню */
+.navbar {
+    background-color: #343a40;
+    padding: 15px;
+}
 
-    <title>Top Movies of All Time</title>   
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+.navbar .navbar-brand img {
+    width: 100px;
+}
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../movies/movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about/about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../auth/auth.html">
-                        <button type="button" class="btn btn-danger">Login</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-success me-2" id="subscribeBtn">Subscribe</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-warning me-2" id="colorBtn">🎨 Theme</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-info me-2" id="dayNightToggle">🌙 Night Mode</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-size: 18px;
+}
 
-    <div id="popupForm" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest movie updates, special offers, and exclusive content!</p>
-            <form id="subscriptionForm">
-                <div class="form-group">
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <select id="preferences" name="preferences">
-                        <option value="">Select your movie preferences</option>
-                        <option value="action">Action</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="drama">Drama</option>
-                        <option value="horror">Horror</option>
-                        <option value="sci-fi">Sci-Fi</option>
-                        <option value="all">All Genres</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="newsletter" name="newsletter" checked>
-                        I want to receive weekly movie updates
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="offers" name="offers" checked>
-                        I want to receive special offers and discounts
-                    </label>
-                </div>
-                <button type="submit" class="btn-submit">Subscribe Now</button>
-            </form>
-        </div>
-    </div>
-        
-        <main class="main-content">
-            <section class="gallery">
-                <div class="gallery-item">
-                    <img src="../images/film10.webp" alt="Постер 1">
-                    <div class="caption accents">1+1 (2011)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film2.webp" alt="Постер 2">
-                    <div class="caption accents">Остров проклятых (2009)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film3.webp" alt="Постер 3">
-                    <div class="caption accents">Терминатор 2: Судный день (1991)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film4.webp" alt="Постер 4">
-                    <div class="caption accents">Волк с Уолл-стрит (2013)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film5.webp" alt="Постер 5">
-                    <div class="caption accents">Крестный отец (1972)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film6.webp" alt="Постер 6">
-                    <div class="caption accents">Большой куш (2000)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film7.webp" alt="Постер 7">
-                    <div class="caption accents">Хатико: Самый верный друг (2008)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film8.webp" alt="Постер 8">
-                    <div class="caption accents">Темный рыцарь (2008)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/film9.webp" alt="Постер 9">
-                    <div class="caption accents">Shrek (2001)</div>
-                </div>
-            </section>
-        </main>
-        <footer class="footer-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <h5>Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="../movies/movies.html">Movies</a></li>
-                            <li><a href="../tickets/ticket_sale.html">Tickets</a></li>
-                            <li><a href="top.html">Popular</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <h5>More</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="../cafepage/cafe.html">Cafe</a></li>
-                            <li><a href="../about/about.html">About Us</a></li>
-                            <li><a href="../feedback/feedback.html">Feedbacks</a></li>
-                            <li><a href="../auth/auth.html">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>About</h5>
-                        <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
-                    </div>
-                </div>
-                <hr class="my-3">
-                <p class="text-center mb-0">&copy; 2025 Coolest Theater. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../main.js"></script>
-</body>
-</html>
+.navbar-nav .nav-link:hover {
+    color: #f8c502 !important;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #f8c502 !important;
+}
+
+/* Стили для галереи */
+.main-content {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.accents {
+    font-weight: bold;
+}
+
+/* Стиль для формы подписки */
+#popupForm {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#popupForm .popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+#popupForm h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+#popupForm .form-group {
+    margin-bottom: 15px;
+}
+
+#popupForm input[type="text"],
+#popupForm input[type="email"],
+#popupForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#popupForm .btn-submit {
+    padding: 10px 20px;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#popupForm .btn-submit:hover {
+    background-color: #f8c502;
+}
+
+#popupForm .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Стили для футера */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Кнопки и прочие элементы */
+button {
+    cursor: pointer;
+}
+.navbar-logo {
+    max-height: 40px;
+    width: auto;
+}
+
+button:focus {
+    outline: none;
+}

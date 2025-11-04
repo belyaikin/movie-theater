@@ -8,44 +8,50 @@
 
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="auth.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../movies.css"> 
+    <script src="ttt.js"></script>
     <title>CMTIA: Authorization</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo" class="navbar-logo"></a>
+            <div class="time-text">
+                <p id="time"></p>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-3">
+                    <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
+                </li>
+                <li class="nav-item me-3">
+                    <a href="../auth/auth.html">
+                        <button type="button" class="btn btn-danger">Login</button>
+                    </a>
+                </li>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../movies/movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../top/top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about/about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
-                </li>
-            </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="index.html">Home</a></li>
+                            <li><a class="dropdown-item" href="movies/movies.html">Movies</a></li>
+                            <li><a class="dropdown-item" href="tickets/ticket_sale.html">Tickets</a></li>
+                            <li><a class="dropdown-item" href="top/top.html">Popular</a></li>
+                            <li><a class="dropdown-item" href="cafepage/cafe.html">Cafe</a></li>
+                            <li><a class="dropdown-item" href="about/about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="feedback/feedback.html">Feedbacks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-
+    
     <div class="auth-container">
         <div class="auth-box">
             <h2>Authorization</h2>
@@ -71,34 +77,9 @@
         </div>
     </div>
 
-    <footer class="footer-section">
+    <footer class="footer-section" style="background-color: #650808; padding: 20px 0; margin-top: 40px;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../movies/movies.html">Movies</a></li>
-                        <li><a href="../tickets/ticket_sale.html">Tickets</a></li>
-                        <li><a href="../top/top.html">Popular</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>More</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../cafepage/cafe.html">Cafe</a></li>
-                        <li><a href="../about/about.html">About Us</a></li>
-                        <li><a href="../feedback/feedback.html">Feedbacks</a></li>
-                        <li><a href="auth.html">Login</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>About</h5>
-                    <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
-                </div>
-            </div>
-            <hr class="my-3">
-            <p class="text-center mb-0">&copy; 2025 Coolest Theater. All rights reserved.</p>
+            <p class="text-center mb-0" style="color: white;">&copy; This website was made by team Tegs and Style.</p>
         </div>
     </footer>
 

@@ -33,11 +33,7 @@
     display: block;
 }
 
-.container {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 20px;
-}
+
 
 
 .custom-modal {
@@ -91,10 +87,6 @@
     filter: invert(1) sepia(1) hue-rotate(0deg) saturate(10000%); 
 }
 
-/* Star Rating System */
-.star-rating-container {
-    margin: 10px 0;
-}
 
 .star-rating {
     display: flex;
@@ -152,10 +144,7 @@ body.day-theme .accordion-collapse {
     color: #495057;
 }
 
-body.day-theme .container {
-    background-color: #ffffff;
-    color: #212529;
-}
+
 
 body.day-theme .custom-modal {
     background-color: #ffffff;

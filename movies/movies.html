@@ -7,168 +7,120 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../index.css"> 
     <link rel="stylesheet" href="movies.css">
-    <link rel="stylesheet" href="../search-styles.css">
-
-    <title>CMTIA: Home</title>
+    <link rel="stylesheet" href="../movies.css">
+    <title>CMTIA: Movies</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo" class="navbar-logo"></a>
+            <div class="time-text">
+                <p id="time"></p>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-3">
+                    <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tickets/ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../top/top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about/about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item me-3">
                     <a href="../auth/auth.html">
                         <button type="button" class="btn btn-danger">Login</button>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-success me-2" id="subscribeBtn">Subscribe</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-warning me-2" id="colorBtn">🎨 Theme</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-info me-2" id="dayNightToggle">🌙 Night Mode</button>
-                </li>
-            </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../index.html">Home</a></li>
+                            <li><a class="dropdown-item" href="../movies/movies.html">Movies</a></li>
+                            <li><a class="dropdown-item" href="../tickets/ticket_sale.html">Tickets</a></li>
+                            <li><a class="dropdown-item" href="../top/top.html">Popular</a></li>
+                            <li><a class="dropdown-item" href="../cafepage/cafe.html">Cafe</a></li>
+                            <li><a class="dropdown-item" href="../about/about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="../feedback/feedback.html">Feedbacks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div id="popupForm" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest movie updates, special offers, and exclusive content!</p>
-            <form id="subscriptionForm">
-                <div class="form-group">
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <select id="preferences" name="preferences">
-                        <option value="">Select your movie preferences</option>
-                        <option value="action">Action</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="drama">Drama</option>
-                        <option value="horror">Horror</option>
-                        <option value="sci-fi">Sci-Fi</option>
-                        <option value="all">All Genres</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="newsletter" name="newsletter" checked>
-                        I want to receive weekly movie updates
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="offers" name="offers" checked>
-                        I want to receive special offers and discounts
-                    </label>
-                </div>
-                <button type="submit" class="btn-submit">Subscribe Now</button>
-            </form>
-        </div>
-    </div>
     <div class="da-big-text">
-        <p>Here's our movies</p>
+        <p>🎬 Breaking Bad Universe Collection</p>
     </div>
 
-    <div class="card-group">
-        <div class="card mv-one movie-card" data-movie="breaking-bad">
-            <img src="" class="card-img-top" alt="Movie image">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <div class="movie-rating">
-                    <div class="star-rating" data-movie="breaking-bad">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
+    <div class="container mt-5 mb-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 mv-one movie-card" data-movie="breaking-bad">
+                    <img src="" class="card-img-top" alt="Movie image">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text collapsed"></p> 
+                        <div class="movie-rating">
+                            <div class="star-rating" data-movie="breaking-bad">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <span class="rating-text">Rate this movie</span>
+                        </div>
+                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
                     </div>
-                    <span class="rating-text">Rate this movie</span>
                 </div>
-                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
-                <button class="btn btn-outline-primary btn-sm" id="mv-one-copy-btn">Copy to clipboard</button>
             </div>
-        </div>
 
-        <div class="card mv-two movie-card" data-movie="better-call-saul">
-            <img src="" class="card-img-top" alt="Movie image">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <div class="movie-rating">
-                    <div class="star-rating" data-movie="better-call-saul">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
+            <div class="col">
+                <div class="card h-100 mv-two movie-card" data-movie="better-call-saul">
+                    <img src="" class="card-img-top" alt="Movie image">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text collapsed"></p>
+                        <div class="movie-rating">
+                            <div class="star-rating" data-movie="better-call-saul">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <span class="rating-text">Rate this movie</span>
+                        </div>
+                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
                     </div>
-                    <span class="rating-text">Rate this movie</span>
                 </div>
-                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
-                <button class="btn btn-outline-primary btn-sm" id="mv-two-copy-btn">Copy to clipboard</button>
             </div>
-        </div>
 
-        <div class="card mv-three movie-card" data-movie="el-camino">
-            <img src="" class="card-img-top" alt="Movie image">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <div class="movie-rating">
-                    <div class="star-rating" data-movie="el-camino">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
+            <div class="col">
+                <div class="card h-100 mv-three movie-card" data-movie="el-camino">
+                    <img src="" class="card-img-top" alt="Movie image">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text collapsed"></p>
+                        <div class="movie-rating">
+                            <div class="star-rating" data-movie="el-camino">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <span class="rating-text">Rate this movie</span>
+                        </div>
+                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
                     </div>
-                    <span class="rating-text">Rate this movie</span>
                 </div>
-                <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                <button class="btn btn-outline-primary btn-sm toggle-description">Show More</button>
-                <button class="btn btn-outline-primary btn-sm" id="mv-tree-copy-btn">Copy to clipboard</button>
             </div>
         </div>
     </div>
@@ -184,9 +136,9 @@
 
         const cards = ['mv-one', 'mv-two', 'mv-three']
         const movies = [
-            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future."),
-            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "The trials and tribulations of criminal lawyer Jimmy McGill in the time before he established his strip-mall law office in Albuquerque, New Mexico."),
-            new MovieCard("../images/elcamino.jpg", "El Camino", "A Netflix film sequel to Breaking Bad, following Jesse Pinkman after the events of the series finale.")
+            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future. The show ran for five seasons and is considered one of the greatest television series of all time."),
+            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "The trials and tribulations of criminal lawyer Jimmy McGill in the time before he established his strip-mall law office in Albuquerque, New Mexico, as Saul Goodman. A prequel and sequel to Breaking Bad."),
+            new MovieCard("../images/elcamino.jpg", "El Camino: A Breaking Bad Movie", "A Netflix film sequel to Breaking Bad, following Jesse Pinkman after the events of the series finale. Jesse must come to terms with his past in order to forge some kind of future.")
         ]
 
         for (let i = 0; i < cards.length; i++) {
@@ -195,64 +147,20 @@
             card.querySelector(".card-img-top").src = movies[i].image
             card.querySelector(".card-title").textContent = movies[i].title
             card.querySelector(".card-text").textContent = movies[i].description
-
-            card.addEventListener("click", () => {
-                new Audio("../audio/beep.wav").play();
-            })
-
-            let copyBtn = document.getElementById(cards[i]+'-copy-btn');
-
-            copyBtn.addEventListener('click', () => {
-              try {
-                navigator.clipboard.writeText(movies[i].title);
-
-                copyBtn.textContent = "✅";
-              } catch (err) {
-                console.err('Unable to copy to clipboard')
-
-                copyBtn.textContent = "❌";
-              }
-            })
         }
     </script>
 
     <div class="da-small-text">
-        <p>Nothing more. Only Breaking Bad series. Who needs more?</p>
+        <p>Nothing more. Only Breaking Bad series. Who needs more? 😉</p>
     </div>
 
-    <footer class="footer-section">
+    <footer class="footer-section bg-dark text-white py-3 mt-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="movies.html">Movies</a></li>
-                        <li><a href="../tickets/ticket_sale.html">Tickets</a></li>
-                        <li><a href="../top/top.html">Popular</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>More</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../cafepage/cafe.html">Cafe</a></li>
-                        <li><a href="../about/about.html">About Us</a></li>
-                        <li><a href="../feedback/feedback.html">Feedbacks</a></li>
-                        <li><a href="../auth/auth.html">Login</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>About</h5>
-                    <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
-                </div>
-            </div>
-            <hr class="my-3">
-            <p class="text-center mb-0">&copy; 2025 Coolest Theater. All rights reserved.</p>
+            <p class="text-center mb-0">&copy; This website was made by team Tegs and Style.</p>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!-- Custom JavaScript -->
     <script src="movies.js"></script>
     <script src="../script.js"></script>
 </body>

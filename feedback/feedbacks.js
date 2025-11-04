@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const addReviewBtn = document.getElementById('addReviewBtn');
     const reviewModal = document.getElementById('reviewModal');
     const reviewForm = document.getElementById('reviewForm');
-    const dayNightToggle = document.getElementById('dayNightToggle');
     const body = document.body;
 
     accordionButtons.forEach(button => {
@@ -302,37 +301,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateRatingText();
     }
 
-    // Day/Night Theme Toggle
-    function initializeDayNightToggle() {
-        if (!dayNightToggle) return;
-
-        // Load saved theme preference
-        const savedTheme = localStorage.getItem('dayNightTheme');
-        if (savedTheme === 'day') {
-            body.classList.add('day-theme');
-            dayNightToggle.innerHTML = '☀️ Day Mode';
-        } else {
-            dayNightToggle.innerHTML = '🌙 Night Mode';
-        }
-
-        dayNightToggle.addEventListener('click', function() {
-            if (body.classList.contains('day-theme')) {
-                // Switch to night mode
-                body.classList.remove('day-theme');
-                this.innerHTML = '🌙 Night Mode';
-                localStorage.setItem('dayNightTheme', 'night');
-            } else {
-                // Switch to day mode
-                body.classList.add('day-theme');
-                this.innerHTML = '☀️ Day Mode';
-                localStorage.setItem('dayNightTheme', 'day');
-            }
-        });
-    }
-
 
     initializeStarRating();
-    initializeDayNightToggle();
 });
 
 

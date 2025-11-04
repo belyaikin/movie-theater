@@ -132,3 +132,30 @@
         padding: 25px;
     }
 }
+
+/* Стили для навигационного меню */
+.navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+/* Стили для выпадающего меню */
+.dropdown-menu {
+    background-color: #343a40;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+    padding: 10px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #555;
+}
+
+/* Кнопка для открытия меню */
+.navbar-toggler {
+    background-color: #555;
+    border: none;
+}
+
+

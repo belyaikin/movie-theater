@@ -5,60 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="ticket_sale.css">
+    <link rel="stylesheet" href="../movies.css">
 </head>   
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo"></a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo" class="navbar-logo"></a>
+            <div class="time-text">
+                <p id="time"></p>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-3">
+                    <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../movies/movies.html">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="ticket_sale.html">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../top/top.html">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cafepage/cafe.html">Cafe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about/about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback/feedback.html">Feedbacks</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item me-3">
                     <a href="../auth/auth.html">
-                    <button type="button" class="btn btn-danger">Login</button>
+                        <button type="button" class="btn btn-danger">Login</button>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-success me-2" id="subscribeBtn">Subscribe</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-warning me-2" id="colorBtn">🎨 Theme</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-info me-2" id="dayNightToggle">🌙 Night Mode</button>
-                </li>
-            </ul>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../index.html">Home</a></li>
+                            <li><a class="dropdown-item" href="../movies/movies.html">Movies</a></li>
+                            <li><a class="dropdown-item" href="../tickets/ticket_sale.html">Tickets</a></li>
+                            <li><a class="dropdown-item" href="../top/top.html">Popular</a></li>
+                            <li><a class="dropdown-item" href="../cafepage/cafe.html">Cafe</a></li>
+                            <li><a class="dropdown-item" href="../about/about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="../feedback/feedback.html">Feedbacks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
 
     <div id="popupForm" class="popup-overlay">
         <div class="popup-content">
@@ -228,39 +220,24 @@
         </div>
     </section>
 
-    <footer class="footer-section">
+    <footer class="footer-section" style="background-color: #650808; padding: 20px 0; margin-top: 40px;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../movies/movies.html">Movies</a></li>
-                        <li><a href="ticket_sale.html">Tickets</a></li>
-                        <li><a href="../top/top.html">Popular</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>More</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../cafepage/cafe.html">Cafe</a></li>
-                        <li><a href="../about/about.html">About Us</a></li>
-                        <li><a href="../feedback/feedback.html">Feedbacks</a></li>
-                        <li><a href="../auth/auth.html">Login</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>About</h5>
-                    <p>This website was made by Danial Myrzatayev and Dmitriy Belyaikin</p>
-                </div>
-            </div>
-            <hr class="my-3">
-            <p class="text-center mb-0">&copy; 2025 Coolest Theater. All rights reserved.</p>
+            <p class="text-center mb-0" style="color: white;">&copy; This website was made by team Tegs and Style.</p>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../main.js"></script>
-    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const dropdownToggle = document.getElementById('navbarDropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+
+        dropdownToggle.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('show');
+            });
+        });
+
+    </script>
 </body>
 </html>
