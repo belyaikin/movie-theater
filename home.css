@@ -159,3 +159,20 @@
 }
 
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    .big-cool-text img {
+        height: 350px; /* Скорректированная высота для планшетов */
+    }
+    .big-cool-text p {
+        font-size: 40px; /* Скорректированный размер текста */
+    }
+
+    .fact {
+        width: 95%;
+        padding: 25px;
+}
+    
+    .viewers iframe {
+        height: 350px; /* Скорректированная высота видео */
+    }
+}
