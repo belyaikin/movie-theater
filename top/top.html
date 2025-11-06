@@ -9,40 +9,38 @@
     <link rel="stylesheet" href="top.css">
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../movies.css">
-    <title>Top Movies of All Time</title>   
+    <title>Top Movies of All Time</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">
-                <img src="../images/logo.png" alt="Logo" class="navbar-logo" style="max-height: 40px; width: auto;;">
-            </a>
-            <div class="time-text">
-                <p id="time"></p>
-            </div>
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="Logo" class="navbar-logo"></a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item me-3">
-                    <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
-                </li>
-                <li class="nav-item me-3">
-                    <a href="../auth/auth.html">
-                        <button type="button" class="btn btn-danger">Login</button>
-                    </a>
-                </li>
+                    <li class="nav-item me-3">
+                        <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
+                    </li>
+
+                    <li class="nav-item me-3">
+                        <a href="../auth/auth.html">
+                            <button type="button" class="btn btn-danger login-btn">Login</button>
+                        </a>
+                    </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Menu
+                        <a class="nav-link dropdown-toggle pages-btn" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="../index.html">Home</a></li>
                             <li><a class="dropdown-item" href="../movies/movies.html">Movies</a></li>
                             <li><a class="dropdown-item" href="../tickets/ticket_sale.html">Tickets</a></li>
-                            <li><a class="dropdown-item" href="../top/top.html">Popular</a></li>
+                            <li><a class="dropdown-item" href="#">Popular</a></li>
                             <li><a class="dropdown-item" href="../cafepage/cafe.html">Cafe</a></li>
                             <li><a class="dropdown-item" href="../about/about.html">About Us</a></li>
                             <li><a class="dropdown-item" href="../feedback/feedback.html">Feedbacks</a></li>
@@ -52,7 +50,6 @@
             </div>
         </div>
     </nav>
-
 
     <div id="popupForm" class="popup-overlay">
         <div class="popup-content">
@@ -96,7 +93,7 @@
             </form>
         </div>
     </div>
-        
+
         <main class="main-content">
             <section class="gallery">
                 <div class="gallery-item">
@@ -142,7 +139,7 @@
             <p class="text-center mb-0" style="color: white;">&copy; This website was made by team Tegs and Style.</p>
         </div>
     </footer>
-    
+
     </div>
     <script src="../script.js"></script>
 </body>
