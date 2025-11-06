@@ -5,11 +5,12 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: #f4f4f4;
     line-height: 1.6;
-    padding-bottom: 80px; /* Space for fixed footer */
+
+    padding-bottom: 80px;
 }
 
 .container-fluid {
@@ -18,30 +19,75 @@ body {
 }
 
 .navbar {
-    padding: 10px 15px;
+    background: rgba(18, 18, 28, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(231, 76, 60, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
 }
 
-.navbar-logo {
-    max-height: 40px;
-    width: auto;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.time-text {
-    color: var(--accent-color, #e74c3c);
-    font-size: 14px;
-    margin: 0 15px;
-    text-align: center;
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
 }
 
-.navbar-nav .nav-link {
-    font-size: 16px;
-    padding: 8px 12px;
+.nav-link {
+    color: #b8b8b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.navbar-nav .btn {
-    font-size: 14px;
-    padding: 6px 12px;
-    margin: 5px;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e74c3c, #ff6b6b);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #e74c3c;
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
 }
 
 .big-cool-text {
@@ -272,6 +318,21 @@ body {
     background: linear-gradient(45deg, #c0392b, #a93226);
     transform: translateY(-2px);
 }
+
+.footer {
+    background: rgba(18, 18, 28, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(231, 76, 60, 0.1);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    color: #b8b8b8;
+    margin-bottom: 1rem;
+}
+
 
 #colorBtn {
     font-size: 14px;
@@ -522,38 +583,38 @@ body.day-theme .close-btn:hover {
     border-radius: 5px;
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
     .navbar-brand {
-        flex-direction: column; 
-        align-items: flex-start !important; 
+        flex-direction: column;
+        align-items: flex-start !important;
         margin-right: 0 !important;
         padding-top: 5px;
         padding-bottom: 5px;
     }
-    
+
     .logo-text {
-        font-size: 18px; 
+        font-size: 18px;
     }
 
     .time-text {
-        font-size: 12px; 
+        font-size: 12px;
     }
 
     .navbar-nav {
-        flex-direction: column !important; 
-        align-items: center; 
+        flex-direction: column !important;
+        align-items: center;
         width: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
         margin: 0 !important;
     }
-    
+
     .navbar-nav .nav-item {
         margin: 8px 0 !important;
         width: 90%;
         text-align: center;
     }
-    
+
     .navbar-nav .btn {
         width: 100%;
         display: block;
@@ -563,7 +624,7 @@ body.day-theme .close-btn:hover {
         padding: 8px 0;
         display: block;
     }
-    
+
     .navbar-nav .nav-item.me-2 {
         margin-right: 0 !important;
     }

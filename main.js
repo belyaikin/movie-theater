@@ -25,7 +25,6 @@ const months = {
 };
 timeText.textContent = `Today is ${date.getDate()} of ${months[date.getMonth()]}, ${date.getFullYear()}`;
 
-// Popup form handling
 subscribeBtn.addEventListener('click', () => {
     popupForm.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -64,7 +63,6 @@ subscriptionForm.addEventListener('submit', (e) => {
     document.body.style.overflow = 'auto';
 });
 
-// Theme switching
 const colorThemes = [
     {
         name: 'Dark Theme',
@@ -137,11 +135,9 @@ function loadSavedTheme() {
 colorBtn.addEventListener('click', changeBackgroundColor);
 loadSavedTheme();
 
-// Day/Night Theme Toggle
 function initializeDayNightToggle() {
     if (!dayNightToggle) return;
 
-    // Load saved theme preference
     const savedTheme = localStorage.getItem('dayNightTheme');
     if (savedTheme === 'day') {
         body.classList.add('day-theme');
@@ -152,12 +148,10 @@ function initializeDayNightToggle() {
 
     dayNightToggle.addEventListener('click', function() {
         if (body.classList.contains('day-theme')) {
-            // Switch to night mode
             body.classList.remove('day-theme');
             this.innerHTML = '🌙 Night Mode';
             localStorage.setItem('dayNightTheme', 'night');
         } else {
-            // Switch to day mode
             body.classList.add('day-theme');
             this.innerHTML = '☀️ Day Mode';
             localStorage.setItem('dayNightTheme', 'day');
@@ -165,7 +159,6 @@ function initializeDayNightToggle() {
     });
 }
 
-// Initialize day/night toggle
 initializeDayNightToggle();
 
 document.addEventListener('keydown', (e) => {
@@ -174,5 +167,3 @@ document.addEventListener('keydown', (e) => {
         changeBackgroundColor();
     }
 });
-
-
