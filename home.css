@@ -11,11 +11,13 @@
     height: 480px;
     object-fit: cover;
     width: 100%;
+
+    border-top: 1px solid rgba(231, 76, 60, 0.2);
+    border-bottom: 1px solid rgba(231, 76, 60, 0.2);
 }
 
 .big-cool-text p {
     color: #ff4935;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 40px;
     position: absolute;
@@ -27,17 +29,17 @@
 }
 
 .fact {
-    background-color: rgba(30, 30, 50, 0.8);;
-    width: 90%;
-    max-width: 60%;
-    min-height: 250px;
+    background-color: rgba(30, 30, 50, 0.8);
     border: 1px solid rgba(231, 76, 60, 0.2);
     border-radius: 50px;
-    padding: 20px;
+
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    gap: 20px;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
 .fact p {
@@ -48,6 +50,7 @@
 
 .fact img {
     border-radius: 50px;
+    border: 1px solid rgba(231, 76, 60, 0.2);
     width: 30%;
     min-width: 150px;
     height: auto;
@@ -70,6 +73,7 @@
 
 .viewers iframe {
     border-radius: 30px;
+    border: 1px solid rgba(231, 76, 60, 0.2);
 }
 
 @media (max-width: 768px) {
