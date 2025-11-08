@@ -198,6 +198,18 @@ body {
     color: var(--accent-color, #e74c3c);
 }
 
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(to right, #8a0000, #5e0d0d);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+
 .footer-section hr {
     border-color: #444;
     margin: 20px 0 15px;
