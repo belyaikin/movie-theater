@@ -1,28 +1,37 @@
 $(() => {
-  $.getJSON('http://localhost:8081/movies/all', (data) => {
-    data.forEach((movie) => {
-      $('.movie-row').append(`<div class="col">
-          <div class="card h-100 mv-one movie-card" data-movie="breaking-bad">
-              <img src="" class="card-img-top" alt="Movie image">
-              <div class="card-body">
-                  <h5 class="card-title">` + movie.name + `</h5>
-                  <p class="card-text collapsed">` + movie.description + `</p>
-                  <div class="movie-rating">
-                      <div class="star-rating" data-movie="breaking-bad">
-                          <span class="star" data-rating="1">★</span>
-                          <span class="star" data-rating="2">★</span>
-                          <span class="star" data-rating="3">★</span>
-                          <span class="star" data-rating="4">★</span>
-                          <span class="star" data-rating="5">★</span>
-                      </div>
-                      <span class="rating-text">Rate this movie</span>
-                  </div>
-                  <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                  <button class="btn btn-danger btn-sm toggle-description">Show More</button>
-              </div>
-          </div>
-      </div>`)
-    })
+  $.ajax({
+    url: 'http://localhost:8081/movies/all',
+    method: 'GET',
+    success: (data) => {
+      data.forEach((movie) => {
+        $('.movie-row').append(`<div class="col">
+            <div class="card h-100 mv-one movie-card" data-movie="breaking-bad">
+                <img src="` + movie.imageUrl + `" class="card-img-top" alt="Movie image">
+                <div class="card-body">
+                    <h5 class="card-title">` + movie.name + `</h5>
+                    <p class="card-text collapsed">` + movie.description + `</p>
+                    <div class="movie-rating">
+                        <div class="star-rating" data-movie="breaking-bad">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <span class="rating-text">Rate this movie</span>
+                    </div>
+                    <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
+                    <button class="btn btn-danger btn-sm toggle-description">Show More</button>
+                </div>
+            </div>
+        </div>`
+        );
+      })
+    },
+    error: (status, error) => {
+      console.error('AJAX Error:', status, error);
+      $('.movie-row').append("<p>Oops!<br>Our sysadmin have spilled beer on servers again.<br>We're sorry for the inconvinience.</p>");
+    },
   })
 });
 
