@@ -48,6 +48,15 @@
                             <li><a class="dropdown-item" href="../cafepage/cafe.html">Cafe</a></li>
                             <li><a class="dropdown-item" href="../about/about.html">About Us</a></li>
                             <li><a class="dropdown-item" href="../feedback/feedback.html">Feedbacks</a></li>
+                            <li class="nav-item dropdown">
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><h6 class="dropdown-header">Filter by genre:</h6></li>
+                                    <li><a class="dropdown-item filter-btn" data-genre="all" href="#">All films</a></li>
+                                    <li><a class="dropdown-item filter-btn" data-genre="drama" href="#">Drama</a></li>
+                                    <li><a class="dropdown-item filter-btn" data-genre="comedy" href="#">Comedy</a></li>
+                                    <li><a class="dropdown-item filter-btn" data-genre="action" href="#">Action</a></li>
+                                    <li><a class="dropdown-item filter-btn" data-genre="thriller" href="#">Thriller</a></li>  
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -100,41 +109,50 @@
 
         <main class="main-content">
             <section class="gallery">
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="comedy">
                     <img src="../images/film10.webp" alt="Постер 1">
                     <div class="caption accents">1+1 (2011)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="thriller">
                     <img src="../images/film2.webp" alt="Постер 2">
                     <div class="caption accents">Остров проклятых (2009)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="action">
                     <img src="../images/film3.webp" alt="Постер 3">
                     <div class="caption accents">Терминатор 2: Судный день (1991)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="drama">
                     <img src="../images/film4.webp" alt="Постер 4">
                     <div class="caption accents">Волк с Уолл-стрит (2013)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="drama">
                     <img src="../images/film5.webp" alt="Постер 5">
                     <div class="caption accents">Крестный отец (1972)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="comedy">
                     <img src="../images/film6.webp" alt="Постер 6">
                     <div class="caption accents">Большой куш (2000)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="drama">
                     <img src="../images/film7.webp" alt="Постер 7">
                     <div class="caption accents">Хатико: Самый верный друг (2008)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="action">
                     <img src="../images/film8.webp" alt="Постер 8">
                     <div class="caption accents">Темный рыцарь (2008)</div>
+                    <button class="like-btn">♡</button>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-genre="comedy">
                     <img src="../images/film9.webp" alt="Постер 9">
                     <div class="caption accents">Shrek (2001)</div>
+                    <button class="like-btn">♡</button>
                 </div>
             </section>
         </main>
@@ -176,6 +194,80 @@
                 <p class="text-center mb-0">&copy; 2025 Coolest Theater. All rights reserved.</p>
             </div>
         </footer>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                // Восстанавливаем лайк, если был
+                const movieName = btn.parentElement.querySelector('.caption').textContent;
+                if (localStorage.getItem('liked_' + movieName) === 'true') {
+                    btn.classList.add('liked');
+                    btn.textContent = 'Liked';
+                }
+
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('liked');
+                    btn.textContent = btn.classList.contains('♡') ? '♡' : '♡';
+
+                    // Сохраняем в localStorage
+                    const movieName = btn.parentElement.querySelector('.caption').textContent;
+                    if (btn.classList.contains('♡')) {
+                        localStorage.setItem('liked_' + movieName, 'true');
+                    } else {
+                        localStorage.removeItem('liked_' + movieName);
+                    }
+                });
+            });
+        });
+        </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.gallery-item');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            // Активный фильтр (подсвечиваем)
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Убираем активный класс у всех
+                    filterBtns.forEach(b => b.classList.remove('active-filter'));
+                    // Добавляем текущему
+                    this.classList.add('active-filter');
+
+                    const genre = this.getAttribute('data-genre');
+
+                    items.forEach(item => {
+                        if (genre === 'all' || item.getAttribute('data-genre') === genre) {
+                            item.style.display = 'block';
+                            item.style.animation = 'fadeIn 0.6s ease';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // По умолчанию — все показаны + "Все фильмы" активно
+            document.querySelector('[data-genre="all"]').classList.add('active-filter');
+        });
+
+        // Анимация появления
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .active-filter {
+                background: #dc3545 !important;
+                color: white !important;
+                font-weight: bold;
+            }
+            .gallery-item { transition: all 0.4s; }
+        `;
+        document.head.appendChild(style);
+        </script>
     <script src="../script.js"></script>
 </body>
 </html>
