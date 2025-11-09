@@ -56,106 +56,11 @@
     </nav>
 
     <div class="da-big-text">
-        <p>🎬 Breaking Bad Universe Collection</p>
+        <p>🎬 Our movie collection</p>
     </div>
 
     <div class="container mt-5 mb-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100 mv-one movie-card" data-movie="breaking-bad">
-                    <img src="" class="card-img-top" alt="Movie image">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text collapsed"></p>
-                        <div class="movie-rating">
-                            <div class="star-rating" data-movie="breaking-bad">
-                                <span class="star" data-rating="1">★</span>
-                                <span class="star" data-rating="2">★</span>
-                                <span class="star" data-rating="3">★</span>
-                                <span class="star" data-rating="4">★</span>
-                                <span class="star" data-rating="5">★</span>
-                            </div>
-                            <span class="rating-text">Rate this movie</span>
-                        </div>
-                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 mv-two movie-card" data-movie="better-call-saul">
-                    <img src="" class="card-img-top" alt="Movie image">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text collapsed"></p>
-                        <div class="movie-rating">
-                            <div class="star-rating" data-movie="better-call-saul">
-                                <span class="star" data-rating="1">★</span>
-                                <span class="star" data-rating="2">★</span>
-                                <span class="star" data-rating="3">★</span>
-                                <span class="star" data-rating="4">★</span>
-                                <span class="star" data-rating="5">★</span>
-                            </div>
-                            <span class="rating-text">Rate this movie</span>
-                        </div>
-                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 mv-three movie-card" data-movie="el-camino">
-                    <img src="" class="card-img-top" alt="Movie image">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text collapsed"></p>
-                        <div class="movie-rating">
-                            <div class="star-rating" data-movie="el-camino">
-                                <span class="star" data-rating="1">★</span>
-                                <span class="star" data-rating="2">★</span>
-                                <span class="star" data-rating="3">★</span>
-                                <span class="star" data-rating="4">★</span>
-                                <span class="star" data-rating="5">★</span>
-                            </div>
-                            <span class="rating-text">Rate this movie</span>
-                        </div>
-                        <p class="card-text"><small class="text-body-secondary">Watch price in <a href="../tickets/ticket_sale.html">Tickets page</a>.</small></p>
-                        <button class="btn btn-danger btn-sm toggle-description">Show More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        class MovieCard {
-            constructor(image, title, description) {
-                this.image = image
-                this.title = title
-                this.description = description
-            }
-        }
-
-        const cards = ['mv-one', 'mv-two', 'mv-three']
-        const movies = [
-            new MovieCard("../images/breakingbad.webp", "Breaking Bad", "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future. The show ran for five seasons and is considered one of the greatest television series of all time."),
-            new MovieCard("../images/bettercallsaul.jpg", "Better Call Saul", "The trials and tribulations of criminal lawyer Jimmy McGill in the time before he established his strip-mall law office in Albuquerque, New Mexico, as Saul Goodman. A prequel and sequel to Breaking Bad."),
-            new MovieCard("../images/elcamino.jpg", "El Camino: A Breaking Bad Movie", "A Netflix film sequel to Breaking Bad, following Jesse Pinkman after the events of the series finale. Jesse must come to terms with his past in order to forge some kind of future.")
-        ]
-
-        for (let i = 0; i < cards.length; i++) {
-            let card = document.getElementsByClassName(cards[i])[0]
-
-            card.querySelector(".card-img-top").src = movies[i].image
-            card.querySelector(".card-title").textContent = movies[i].title
-            card.querySelector(".card-text").textContent = movies[i].description
-        }
-    </script>
-
-    <div class="da-small-text">
-        <p>Nothing more. Only Breaking Bad series. Who needs more? 😉</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4 movie-row"></div>
     </div>
 
     <div id="progress-bar"></div>
