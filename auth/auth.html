@@ -8,8 +8,9 @@
 
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="../movies.css"> 
+    <link rel="stylesheet" href="../movies.css">
     <script src="ttt.js"></script>
+    <script src="../theme.js" defer></script>
     <title>CMTIA: Authorization</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item me-3">
-                    <button class="btn btn-outline-light" id="dayNightToggle">☀️ Day Mode</button>
+                    <button class="btn btn-outline-light" id="toggle-btn"></button>
                 </li>
                 <li class="nav-item me-3">
                     <a href="../auth/auth.html">
@@ -51,7 +52,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="auth-container">
         <div class="auth-box">
             <h2>Authorization</h2>
@@ -68,7 +69,7 @@
                     <a href="../index.html">
                         <button type="button" class="btn">Login</button>
                     </a>
-                    
+
                     <div class="dont-have-an-account">
                         <p>Don't have an account? <a href="../index.html">Go to Home</a></p>
                     </div>

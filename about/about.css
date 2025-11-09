@@ -44,6 +44,14 @@
     line-height: 1.2;
 }
 
+.hero-text {
+    color: white;
+}
+
+.day-theme .hero-text {
+    color: black;
+}
+
 .star {
     font-size: 1.1em;
     animation: glow 2s ease-in-out infinite alternate;
