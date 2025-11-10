@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../movies.css">
 
     <script src="../index.js" defer></script>
-    <script src="../theme.js" defer></script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -455,6 +455,42 @@
         </footer>
     </main>
     <div id="progress-bar"></div>
+
+    <script>
+    const toggle = document.getElementById('toggle-btn');
+    const body = document.querySelector('body');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'day') {
+            toggle.innerText = "☀️";
+            body.classList.toggle('day-theme');
+        }
+        else if (currentTheme === 'night') {
+            toggle.innerText = "🌙";
+        }
+        else {
+            toggle.innerText = "🌙";
+        }
+        });
+
+    toggle.addEventListener('click', () => {
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'day') {
+            toggle.innerText = "🌙";
+            localStorage.setItem('theme', 'night');
+        }
+        else if (currentTheme === 'night') {
+            toggle.innerText = "☀️";
+            localStorage.setItem('theme', 'day');
+        }
+
+        body.classList.toggle('day-theme')
+        });
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="cafe.js"></script>
